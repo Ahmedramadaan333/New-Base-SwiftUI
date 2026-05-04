@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SomarRounded-Regular.ttf</string>
+		<string>SomarRounded-Bold.ttf</string>
+		<string>SomarRounded-Medium.ttf</string>
+		<string>SomarRounded-Light.ttf</string>
+		<string>SomarRounded-Black.ttf</string>
+		<string>SomarRounded-SemiBold.ttf</string>
+	</array>
+	<key>UIDesignRequiresCompatibility</key>
+	<false/>
+	<key>API_BASE_URL</key>
+	<string>https://your-api-domain.com/api/</string>
+	<key>API_KEY</key>
+	<string>YOUR_API_KEY_HERE</string>
+	<key>GOOGLE_MAPS_KEY</key>
+	<string>YOUR_GOOGLE_MAPS_KEY_HERE</string>
+</dict>
+</plist>

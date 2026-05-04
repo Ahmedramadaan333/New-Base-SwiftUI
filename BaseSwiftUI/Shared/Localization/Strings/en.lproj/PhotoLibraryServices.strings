@@ -1,0 +1,11 @@
+/* 
+  PhotoLibraryServices.strings
+  CTF
+
+  Created by Ahmed Ramadan on 29/12/2023.
+  
+*/
+
+"PHOTOS" = "Photos";
+"CAMERA_ROLL" = "Camera roll";
+"ALL_SCREENSHOTS" = "Screenshots";

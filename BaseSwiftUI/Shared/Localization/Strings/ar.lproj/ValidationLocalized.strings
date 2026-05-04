@@ -1,0 +1,96 @@
+/* 
+  ValidationLocalized.strings
+  Samel
+
+  Created by Ahmed Ramadan on 13/04/2024.
+  
+*/
+
+//MARK: - Phone -
+"Please enter your phone number." = "يرجى إدخال رقم الجوال الخاص بك.";
+"Please enter correct phone number." = "الرجاء إدخال رقم جوال صحيح.";
+"Please enter correct whatsApp number." = "الرجاء إدخال رقم واتساب صحيح.";
+
+"Phone number is too short, Please enter correct phone number." = "رقم الهاتف قصير جدًا، يُرجى إدخال رقم الهاتف الصحيح";
+"Phone number is too long, please enter correct number." = "رقم الهاتف طويل جدًا، الرجاء إدخال الرقم الصحيح.";
+
+//MARK: - Auth -
+
+"Please enter name." = "الرجاء إدخال الاسم." ;
+"Please read and agree our terms and conditions first" = "يرجى قراءة البنود والشروط الخاصة بنا والموافقة عليها أولاً";
+"Name is too short." = "الإسم قصير جدا.";
+"Name is too long." = "الاسم طويل جدا.";
+//MARK: - Verification Code -
+"Please enter verification code" = "الرجاء إدخال كود التفعيل";
+"Verification Code should be 4 digits." = "يجب أن يتكون كود التفعيل من 4 أرقام.";
+ "Please select Message subject" = "الرجاء تحديد موضوع الرسالة";
+"Plesae enter your Message" = "الرجاء إدخال رسالتك";
+//MARK: - Order -
+"Please select the vehicle type" = "يرجي اختيار نوع السياره";
+"Please select Service" = "الرجاء اختيار الخدمة";
+"Please select order Location" = "الرجاء تحديد موقع الطلب";
+"Please explain the service details" = "يرجى توضيح تفاصيل الخدمة" ;
+"Please Enter the address in text" = "الرجاء إدخال العنوان نصيا" ;
+"Please select photos, videos or recordings to upload to complete your order." = "الرجاء اختيار الصور أو الفيديو أو التسجيل لتحميلها لإكمال الطلب" ;
+"Please select date" = "الرجاء تحديد التاريخ" ;
+"Please select time" = "الرجاء تحديد الوقت" ;
+"" = "" ;
+
+//MARK: - More -
+"Please enter your Message Title" = "الرجاء إدخال عنوان الرسالة";
+"Please enter your Complaint Message" = "الرجاء إدخال رسالة الشكوى الخاصة بك";
+"Complaint Message is too short" = "رسالة الشكوى قصيرة جدًا";
+"Please select Complaint Images" = "الرجاء اختيار صور الشكوى";
+"Please select data to upload it to complete order" = "";
+"Please select a cancel reason." = "الرجاء تحديد سبب الإلغاء.";
+"Please provide a reason for cancellation." = "يرجى كتابة سبب الإلغاء.";
+"Please select Profile picture" = "يرجى اختيار صورة الملف الشخصي";
+"Please select your Commercial ID Picture" = "يرجى اختيار صورة السجل التجاري";
+"Please select your location" = "يرجى اختيار موقعك";
+"Please select the sub categories" = "يرجى اختيار الفئات الفرعية";
+"Please select Services" = "يرجى اختيار الخدمات";
+
+"Notes must be greater than 4 letters." = "يجب أن تكون الملاحظات أكبر من 4 أحرف.";
+"Please enter your Invoice Price." = "الرجاء إدخال سعر الفاتورة الخاصة بك.";
+"EMPTY_PASSWORD" = "لا يمكن أن تكون كلمة المرور فارغة.";
+"SHORT_PASSWORD" = "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.";
+"LONG_PASSWORD" = "يجب ألا تتجاوز كلمة المرور 52 حرفًا.";
+"INVALID_CHARACTERS" = "يجب أن تحتوي كلمة المرور على أحرف وأرقام إنجليزية فقط.";
+"Please enter new password field." = "الرجاء إدخال حقل كلمة المرور الجديدة.";
+"New password is too short, it should be 6 characters at least." = "كلمة المرور الجديدة قصيرة جدًا ، يجب أن تتكون من 6 أحرف على الأقل.";
+"Please enter old password field." = "الرجاء إدخال حقل كلمة المرور القديمة.";
+"Old password is too short, it should be 6 characters at least." = "كلمة المرور القديمة قصيرة جدًا ، يجب أن تتكون من 6 أحرف على الأقل.";
+"Please enter confirm new password field." = "الرجاء إدخال حقل تأكيد كلمة المرور الجديدة.";
+"Please enter confirm password field." = "الرجاء إدخال حقل تأكيد كلمة المرور.";
+"Passwords not match." = "كلمات المرور غير متطابقة.";
+
+"Password must contain at least one letter." = "يجب أن تحتوي كلمة المرور على حرف واحد على الأقل.";
+"Password must contain at least one number." = "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل.";
+"Password must contain at least one special character." = "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل.";
+"Password must contain at least one uppercase letter." = "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل.";
+
+"Please enter complaint field." = "الرجاء إدخال رسالة الشكوى الخاصة بك";
+"Complaint is too short. must be more than 4 characters." = "الشكوى قصيرة جدًا. يجب أن تكون أكثر من 4 أحرف";
+"Complaint is too long. must be less than 256 characters." = "الشكوى طويلة جدًا. يجب أن تكون أقل من 256 حرفًا";
+"pickup_required_error" = "الرجاء تحديد موقع الانطلاق";
+"dropoff_required_error" = "الرجاء تحديد موقع الوصول";
+"pickup_dropoff_same_error" = "موقع الانطلاق يجب أن يختلف عن موقع الوصول";
+"empty_weight_validation_error" = "الرجاء إدخال وزن البضاعة";
+"invalid_weight_validation_error" = "وزن البضاعة غير صالح";
+"select_vehicle_validtion_error" = "الرجاء اختيار نوع المركبة";
+"select_payment_method_validtion_error" = "الرجاء اختيار طريقة الدفع";
+"goods_type_required_error" = "الرجاء إدخال نوع البضاعة";
+"short_goods_type_error" = "نوع البضاعة يجب ألا يقل عن 5 أحرف";
+"long_goods_type_error" = "نوع البضاعة يجب ألا يزيد عن 256 حرفًا";
+"select_flatbed_truck_validtion_error" = "الرجاء اختيار نوع السطحة";
+"flatbed_type_required_error" = "الرجاء اختيار نوع السطحة";
+"date_required_error" = "الرجاء ادخال التاريخ";
+"time_required_error" = "الرجاء ادخال الوقت";
+"coupon_required_error" = "الرجاء ادخال رقم كوبون";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";

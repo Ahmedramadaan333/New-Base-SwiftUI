@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  CTF
+
+  Created by Ahmed Ramadan on 29/12/2023.
+  
+*/
+
+"CFBundleDisplayName" = "BaseSwiftUI";
+"NSCameraUsageDescription" = "to pick your profile picture";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "to get nearest providers around you";
+"NSLocationAlwaysUsageDescription" = "to get nearest providers around you";
+"NSLocationWhenInUseUsageDescription" = "to get nearest providers around you";
+"NSPhotoLibraryUsageDescription" = "to pick your profile picture";
+"NSMicrophoneUsageDescription" = "to send voice messages";

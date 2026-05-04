@@ -1,0 +1,53 @@
+/* 
+  HelperLocalizable.strings
+  Samel
+
+  Created by Ahmed Ramadan on 12/05/2024.
+  
+*/
+
+"Pick Image" = "اختر صورة";
+"Pick Video" = "التقط فيديو";
+"Camera" = "الكاميرا";
+"Gallery" = "معرض الصور";
+"Cancel" = "الغاء";
+ "Reloading..." = "جاري التحميل...";
+ "Your are not login" = "لم تقم بتسجيل الدخول";
+ "No Notifications Found" = "لا توجد إشعارات";
+ "Start logging into your account with us" = "قم بتسجيل الدخول";
+ "Login" = "تسجيل الدخول";
+"Add" = "إضافه";
+
+
+"Try again" = "حاول مرة أخرى";
+"Delete" = "حذف";
+"Logout" = "تسجيل خروج";
+"Login" = "تسجيل الدخول";
+"Refuse" = "رفض";
+"Please check your connection" = "يرجى التحقق من اتصالك";
+"Do you Need to delete this account?" = "هل تريد حذف هذا الحساب؟";
+"Are you sure you want to logout?" = "هل أنت متأكد أنك تريد تسجيل الخروج؟";
+"You should login first" = "يجب عليك تسجيل الدخول أولا";
+"Are you sure to refuse?" = "هل أنت متأكد من الرفض؟";
+"No Notifications Found" = "لم يتم العثور على إشعارات";
+"No Orders Found" = "لم يتم العثور على طلبات";
+"No Stores orders" = "لا توجد طلبات للمتاجر";
+"No Rates Found" = "لم يتم العثور على تقييمات";
+"No search results" = "لم يتم العثور على نتائج بحث";
+"No Addresses Found" = "لم يتم العثور على عناوين";
+"No Offers Found" = "لم يتم العثور على عروض";
+"No Favorites Found" = "لم يتم العثور على المفضلة";
+"Refresh" = "تحديث";
+"No Chats Found" = "لم يتم العثور على أي محادثات";
+"No Data Found" = "لم يتم العثور على أي بيانات";
+"No Drivers Found" = "لا يوجد سائقين";
+"No Packages Found" = "لم يتم العثور على أي باقات";
+"No Categories Found" = "لم يتم العثور على اي تصنيفات";
+"No Busses Found" = "لم يتم العثور على حافلات";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";

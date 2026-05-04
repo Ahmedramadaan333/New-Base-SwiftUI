@@ -1,0 +1,211 @@
+/*
+ Localizable.strings
+ Samel
+ 
+ Created by Ahmed Ramadan on 29/07/2024.
+ 
+ */
+
+
+"login_title" = "تسجيل دخول";
+"login_description" = "مرحبا بعودتك مرة اخري قم بتسجيل الدخول! ";
+"name_title" = "الإسم";
+"name_description" = "ادخل اسمك";
+"password_title" = "كلمة المرور";
+"password_description" = "************";
+"confirm_title" = "تأكيد";
+"Please select a country" = "الرجاء اختيار الدولة";
+"Search..." = "بحث...";
+"Select Country" = "اختر الدولة";
+"select_error_message" = "يرجى اختيار عنصر من القائمة";
+"Phone Number" = "رقم الجوال";
+"Please enter your phone number" = "الرجاء ادخال رقم الجوال";
+"guest_login_tilte" = "دخول كزائر";
+"language_title" = "اللغة";
+"change_language_title" = "تغيير لغة التطبيق";
+"change_title" = "تغيير";
+"verification_code_description" = "قم بادخال الكود المرسل الي رقم جوالك ";
+"verify_title" = "تحقق";
+"verification_code_title" = "كود التحقق";
+"verification_remaining_time_title" = "الوقت المتبقي :";
+"verification_seconds_suffix" = "ثانية";
+"resend_code_title" = "اعادة ارسال الكود";
+"complete_register_title" = "استكمال البيانات";
+"complete_register_description" = "قم باستكمال باقي البيانات المطلوبة";
+"attach_profile_image_title" = "ارفق الصورة الشخصية ";
+"username_title" = "اسم المستخدم";
+"username_placholder" = "اسم المستخدم";
+"email_title" = "البريد الالكتروني";
+"email_placholder" = "البريد الالكتروني";
+"accept_terms_and_conditions_title" = "الموافقة علي الشروط والاحكام";
+"" = "";
+"" = "";
+"" = "";
+//MARK: - More -
+
+
+"profile_title" = "الملف الشخصي";
+"wallet_title" = "المحفظة";
+"my_rates_title" = "تقييماتي";
+"settings_title" = "الإعدادات";
+"complaints_and_suggestions_title" = "الشكاوى والاقتراحات";
+"terms_and_conditions_title" = "الشروط والأحكام";
+"about_app_title" = "عن التطبيق";
+"logout_title" = "تسجيل الخروج";
+"more_title" = "المزيد";
+"points_title" = "نقاطي";
+"privacy_title" = "سياسة الخصوصية";
+"edit_profile_title" = "تعديل الملف الشخصي";
+"complaint_description_title" = "وصف الشكوي";
+"complaint_description_placeholder" = "وصف الشكوي";
+"full_name_title" = "الاسم بالكامل";
+"add_title" = "اضافة";
+"your_balance_title" = "رصيدك :";
+"charge_balance_title" = "شحن المحفظة";
+"charge_amount_title" = "مبلغ الشحن";
+"charge_amount_placeholder" = "مبلغ الشحن";
+"charge_title" = "شحن";
+"Please enter an amount" = "الرجاء إدخال المبلغ";
+"convert_points_title" = "استبدال النقاط";
+"trip_number_title" = "عدد الرحلات";
+"trips_title" = " رحلات";
+"reward_points_title" = "نقاط المكافات";
+"point_title" = "نقطة";
+"equal_value_title" = "القيمة المساوية";
+"show_profile_title" = "عرض الملف الشخصي";
+"edit_phone_title" = "تعديل رقم الجوال";
+"change_language_title" = "تغيير لغة التطبيق";
+"enable_notifications_title" = "تفعيل الاشعارات";
+"delete_account_title" = "حذف الحساب";
+"delete_account_message_title" = "هل انت متاكد من حذف حسابك ؟";
+"cancel_title" = "تراجع  ";
+"confirm_delete_title" = "تاكيد الحذف";
+"logout_message_title" = "هل تريد تسجيل الخروج من التطبيق ؟";
+"logout_confirm_title" = "تاكيد الخروج";
+"change_phone_title" = "تغيير رقم الجوال";
+"new_phone_title" = "رقم الجوال الجديد";
+"new_phone_placeholder" = "رقم الجوال الجديد";
+"" = "";
+"" = "";
+
+//MARK: - Home -
+
+"sections_title" = "الاقسام";
+"select_location_title" = "حدد موقعك الان";
+"main_title" = "الرئيسية";
+"orders_title" = "الطلبات";
+"delivery_goods_title" = "توصيل بضاعة";
+"flatbed_truck_delivery_title" = "توصيل سطحات";
+"people_delivery_title" = "توصيل اشخاص ";
+"new_title" = "جديد";
+"scheduled_title" = "مجدول";
+"current_title" = "حالي";
+"finished_title" = "منتهي";
+"trip_status" = "حالة الطلب :";
+"show_order_title" = "عرض الطلب ";
+"location_title" = "الموقع";
+"pickup_title" = "تحديد نقطة الانطلاق";
+"dropoff_title" = "تحديد موقع الوصول";
+"edit_title" = "تعديل";
+"send_title" = "ارسال";
+"pickup_point_title" = "نقطه الانطلاق :";
+"dropoff_point_title" = "نقطه الوصول :";
+"fill_required_data_title" = "املئ البيانات المطلوبة";
+"goods_image_title" = "صورة البضاعة";
+"Unknown location" = "موقع غير معروف";
+"goods_transport_title" = "نقل بضاعة";
+"goods_weight_title" = "وزن البضاعه";
+"goods_weight_placeholder" = "وزن البضاعه";
+"kg" = "كجم";
+"goods_type_title" = "نوع البضاعة";
+"vehicle_type_title" = "نوع السيارة";
+"select_title" = "اختار";
+"payment_method_title" = "طريقة الدفع";
+"notes_title" = "ملاحظات";
+"flatbed_trucks_transport_title" = "نقل سطحة";
+"truck_type_title" = "نوع السطحة";
+"attach_car_image_title" = "ارفق صورة السيارة";
+"coupon_title" = "كود الخصم";
+"coupon_placeholder" = "كود الخصم";
+"coupon_remove_title" = "تراجع";
+"coupon_apply_title" = "تفعيل";
+"delivery_date_title" = "تاريخ التوصيل";
+"delivery_date_placeholder" = "تاريخ التوصيل";
+"delivery_time_title" = "وقت التوصيل";
+"delivery_time_placeholder" = "وقت التوصيل";
+"trip_type_title" = "نوع الرحلة";
+"immediate_title" = "فورية";
+"scheduled_trip_title" = "مجدولة";
+"person_transport_title" = "توصيل اشخاص";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+
+//MARK: - Orders -
+
+"order_details_title" = "تفاصيل الطلب";
+"notes_title" = "ملاحظات :";
+"goods_images_title" = "صور البضاعة :";
+"goods_type_title" = "نوع البضاعة :";
+"cancel_trip_title" = "الغاء الرحلة";
+"order_number_title" = "رقم الطلب ";
+"order_status_title" = "حاله الطلب";
+"order_time_title" = "وقت الطلب";
+"goods_weight_title" = "وزن البضاعة";
+"vehicle_type_title" = "نوع السيارة";
+"payment_type_title" = "طريقة الدفع";
+"car_model_title" = "موديل السيارة :";
+"waiting_time_title" = "الوقت المستغرق :";
+"accept_offer_title" = "قبول العرض";
+"reject_offer_title" = "رفض";
+"offers_title" = "عروض الاسعار";
+"show_all_title" = "عرض الكل";
+"car_image_title" = "صورة السيارة :";
+"flatbed_type_title" = "نوع السطحة";
+"choose_cancel_reason_title" = "اختر سبب الالغاء";
+"confirm_cancel_title" = "تاكيد الالغاء";
+"car_category_title" = "فئة السيارة";
+"notifications_title" = "الاشعارات";
+"delete_notifications_title" = "حذف الاشعارات";
+"delete_all_confirm_title" = "هل تريد حذف الاشعارات؟";
+"delete_one_confirm_title" = "هل تريد حذف الاشعار؟";
+"delete_title" = "حذف";
+"back_title" = "تراجع ";
+"login_required_title" = "قم بتسجيل الدخول اولاً!";
+"pay_order_title" = "دفع الان";
+"palet_number_title" = "رقم اللوحة :";
+"success_payment_title" = "تم عملية الدفع بنجاح";
+"close_title" = "إغلاق";
+"payment_title" = "الدفع";
+"capatin_on_way_title" = "الكابتن في الطريق اليك";
+"at_pick_up_location_title" = "لقد وصل الكابتن الي موقعك";
+"on_way_title" = "انت الان في الطريق الي وجهتك";
+"delivered_title" = "تم الوصول الي وجهتك";
+"confirm_ride_title" = "تاكيد ركوب";
+"send_waiting_request_title" = "طلب انتظار";
+"finish_waiting_request_title" = "انهاء الانتظار";
+"pay_title" = "دفع";
+"waiting_price_title" = "تكلفةالانتظار";
+"delivery_of_goods_title" = "تسليم البضاعة";
+"recevied_of_goods_title" = "تم استلام البضاعة";
+"chat_title" = "المحادثة";
+"location_tracking_title" = "تتبع الكابتن";
+"rate_captain_title" = "تقييم الكابتن";
+"comment_on_captain_title" = "تعليقك علي الكابتن";
+"rate_title" = "تقييم";
+"choose_image_source_title" = "اختر صورة";
+"gallery_title" = "الصور";
+"camera_title" = "الكاميرا";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+
+
+//MARK: - Helpers -
+"Error" = "خطأ";
+"Warning" = "تحذير";
+"" = "";

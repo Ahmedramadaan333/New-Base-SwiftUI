@@ -1,0 +1,211 @@
+/*
+ Localizable.strings
+ CTF
+ 
+ Created by Ahmed Ramadan on 29/07/2024.
+ 
+ */
+
+
+"login_title" = "Login";
+"login_description" = "Welcome back, please log in! ";
+"name_title" = "Name";
+"name_description" = "Enter your name";
+"password_title" = "Password";
+"password_description" = "************";
+"confirm_title" = "Confirm";
+"Please select a country" = "Please select a country";
+"Search..." = "Search...";
+"Select Country" = "Select Country";
+"select_error_message" = "Please select an item from the list";
+"Phone Number" = "Phone Number";
+"Please enter your phone number" = "Please enter your phone number";
+"guest_login_tilte" = "Guest Login";
+"language_title" = "Language";
+"change_language_title" = "Change App Language";
+"change_title" = "Change";
+"verification_code_description" = "Enter the code sent to your mobile number ";
+"verify_title" = "Verify";
+"verification_code_title" = "Verification Code";
+"verification_remaining_time_title" = "Remaining Time :";
+"verification_seconds_suffix" = "seconds";
+"resend_code_title" = "Resend Code";
+"complete_register_title" = "Complete Registration";
+"complete_register_description" = "Complete the remaining required data";
+"attach_profile_image_title" = "Attach Profile Picture ";
+"username_title" = "Username";
+"username_placholder" = "Username";
+"email_title" = "Email";
+"email_placholder" = "Email";
+"accept_terms_and_conditions_title" = "Accept Terms and Conditions";
+"" = "";
+"" = "";
+"" = "";
+//MARK: - More -
+
+
+"profile_title" = "Profile";
+"wallet_title" = "Wallet";
+"my_rates_title" = "My Ratings";
+"settings_title" = "Settings";
+"complaints_and_suggestions_title" = "Complaints and Suggestions";
+"terms_and_conditions_title" = "Terms and Conditions";
+"about_app_title" = "About the App";
+"logout_title" = "Logout";
+"more_title" = "More";
+"points_title" = "My Points";
+"privacy_title" = "Privacy Policy";
+"edit_profile_title" = "Edit Profile";
+"complaint_description_title" = "Complaint Description";
+"complaint_description_placeholder" = "Complaint Description";
+"full_name_title" = "Full Name";
+"add_title" = "Add";
+"your_balance_title" = "Your Balance :";
+"charge_balance_title" = "Charge Wallet";
+"charge_amount_title" = "Charge Amount";
+"charge_amount_placeholder" = "Charge Amount";
+"charge_title" = "Charge";
+"Please enter an amount" = "Please enter an amount";
+"convert_points_title" = "Redeem Points";
+"trip_number_title" = "Number of Trips";
+"trips_title" = " trips";
+"reward_points_title" = "Reward Points";
+"point_title" = "point";
+"equal_value_title" = "Equivalent Value";
+"show_profile_title" = "Show Profile";
+"edit_phone_title" = "Edit Phone Number";
+"change_language_title" = "Change App Language";
+"enable_notifications_title" = "Enable Notifications";
+"delete_account_title" = "Delete Account";
+"delete_account_message_title" = "Are you sure you want to delete your account?";
+"cancel_title" = "Cancel  ";
+"confirm_delete_title" = "Confirm Deletion";
+"logout_message_title" = "Do you want to log out of the app?";
+"logout_confirm_title" = "Confirm Logout";
+"change_phone_title" = "Change Phone Number";
+"new_phone_title" = "New Phone Number";
+"new_phone_placeholder" = "New Phone Number";
+"" = "";
+"" = "";
+
+//MARK: - Home -
+
+"sections_title" = "Sections";
+"select_location_title" = "Select your location now";
+"main_title" = "Home";
+"orders_title" = "Orders";
+"delivery_goods_title" = "Goods Delivery";
+"flatbed_truck_delivery_title" = "Flatbed Delivery";
+"people_delivery_title" = "People Delivery ";
+"new_title" = "New";
+"scheduled_title" = "Scheduled";
+"current_title" = "Current";
+"finished_title" = "Finished";
+"trip_status" = "Order Status :";
+"show_order_title" = "Show Order ";
+"location_title" = "Location";
+"pickup_title" = "Select Pickup Point";
+"dropoff_title" = "Select Dropoff Location";
+"edit_title" = "Edit";
+"send_title" = "Send";
+"pickup_point_title" = "Pickup Point :";
+"dropoff_point_title" = "Dropoff Point :";
+"fill_required_data_title" = "Fill in the required data";
+"goods_image_title" = "Goods Image";
+"Unknown location" = "Unknown location";
+"goods_transport_title" = "Goods Transport";
+"goods_weight_title" = "Goods Weight";
+"goods_weight_placeholder" = "Goods Weight";
+"kg" = "kg";
+"goods_type_title" = "Goods Type";
+"vehicle_type_title" = "Vehicle Type";
+"select_title" = "Select";
+"payment_method_title" = "Payment Method";
+"notes_title" = "Notes";
+"flatbed_trucks_transport_title" = "Flatbed Transport";
+"truck_type_title" = "Flatbed Type";
+"attach_car_image_title" = "Attach Car Image";
+"coupon_title" = "Discount Code";
+"coupon_placeholder" = "Discount Code";
+"coupon_remove_title" = "Cancel";
+"coupon_apply_title" = "Apply";
+"delivery_date_title" = "Delivery Date";
+"delivery_date_placeholder" = "Delivery Date";
+"delivery_time_title" = "Delivery Time";
+"delivery_time_placeholder" = "Delivery Time";
+"trip_type_title" = "Trip Type";
+"immediate_title" = "Immediate";
+"scheduled_trip_title" = "Scheduled";
+"person_transport_title" = "People Transport";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+
+//MARK: - Orders -
+
+"order_details_title" = "Order Details";
+"notes_title" = "Notes :";
+"goods_images_title" = "Goods Images :";
+"goods_type_title" = "Goods Type :";
+"cancel_trip_title" = "Cancel Trip";
+"order_number_title" = "Order Number ";
+"order_status_title" = "Order Status";
+"order_time_title" = "Order Time";
+"goods_weight_title" = "Goods Weight";
+"vehicle_type_title" = "Vehicle Type";
+"payment_type_title" = "Payment Type";
+"car_model_title" = "Car Model :";
+"waiting_time_title" = "Time Taken :";
+"accept_offer_title" = "Accept Offer";
+"reject_offer_title" = "Reject";
+"offers_title" = "Price Offers";
+"show_all_title" = "Show All";
+"car_image_title" = "Car Image :";
+"flatbed_type_title" = "Flatbed Type";
+"choose_cancel_reason_title" = "Choose Cancellation Reason";
+"confirm_cancel_title" = "Confirm Cancellation";
+"car_category_title" = "Car Category";
+"notifications_title" = "Notifications";
+"delete_notifications_title" = "Delete Notifications";
+"delete_all_confirm_title" = "Do you want to delete the notifications?";
+"delete_one_confirm_title" = "Do you want to delete the notification?";
+"delete_title" = "Delete";
+"back_title" = "Back ";
+"login_required_title" = "Please log in first!";
+"pay_order_title" = "Pay Now";
+"palet_number_title" = "Plate Number :";
+"success_payment_title" = "Payment successful";
+"close_title" = "Close";
+"payment_title" = "Payment";
+"capatin_on_way_title" = "Captain on the way to you";
+"at_pick_up_location_title" = "The captain has arrived at your location";
+"on_way_title" = "You are now on the way to your destination";
+"delivered_title" = "Arrived at your destination";
+"confirm_ride_title" = "Confirm Ride";
+"send_waiting_request_title" = "Request Waiting";
+"finish_waiting_request_title" = "End Waiting";
+"pay_title" = "Pay";
+"waiting_price_title" = "Waiting Cost";
+"delivery_of_goods_title" = "Goods Delivery";
+"recevied_of_goods_title" = "Goods Received";
+"chat_title" = "Chat";
+"location_tracking_title" = "Track Captain";
+"rate_captain_title" = "Rate Captain";
+"comment_on_captain_title" = "Your comment on the captain";
+"rate_title" = "Rate";
+"choose_image_source_title" = "Choose Image";
+"gallery_title" = "Photos";
+"camera_title" = "Camera roll";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+
+
+//MARK: - Helpers -
+"Error" = "Error";
+"Warning" = "Warning";
+"" = "";

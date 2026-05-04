@@ -1,0 +1,89 @@
+/* 
+  ValidationLocalized.strings
+  Samel
+
+  Created by Ahmed Ramadan on 13/04/2024.
+  
+*/
+
+//MARK: - Phone -
+"Please enter your phone number." = "Please enter your phone number.";
+"Please enter correct phone number." = "Please enter correct phone number.";
+"Please enter correct whatsApp number." = "Please enter correct WhatsApp number.";
+"Phone number is too short, Please enter correct phone number." = "Phone number is too short, Please enter correct phone number.";
+"Phone number is too long, please enter correct number." = "Phone number is too long, please enter correct number.";
+//MARK: - Auth -
+"Please enter name." = "Please enter name." ;
+"Please read and agree our terms and conditions first" = "Please read and agree our terms and conditions first";
+"Name is too short." = "Name is too short.";
+"Name is too long." = "Name is too long.";
+//MARK: - Verification Code -
+"Please enter verification code" = "Please enter verification code";
+"Verification Code should be 4 digits." = "Verification Code should be 4 digits.";
+"Please select Message subject" = "Please select Message subject";
+"Plesae enter your Message" = "Please enter your Message";
+//MARK: - Order -
+"Please select the vehicle type" = "Please select the vehicle type";
+"Please select Service" = "Please select Service";
+"Please select order Location" = "Please select order Location";
+"Please explain the service details" = "Please explain the service details" ;
+"Please Enter the address in text" = "Please Enter the address in text" ;
+"Please select photos, videos or recordings to upload to complete your order." = "Please select photos, videos or recordings to upload to complete your order." ;
+"Please select date" = "Please select date" ;
+"Please select time" = "Please select time" ;
+"" = "" ;
+//MARK: - More -
+"Please enter your Message Title" = "Please enter your Message Title";
+"Please enter your Complaint Message" = "Please enter your Complaint Message";
+"Complaint Message is too short" = "Complaint Message is too short";
+"Please select Complaint Images" = "Please select Complaint Images";
+"Please select data to upload it to complete order" = "";
+"Please select a cancel reason." = "Please select a cancel reason.";
+"Please provide a reason for cancellation." = "Please provide a reason for cancellation.";
+"Please select Profile picture" = "Please select Profile picture";
+"Please select your Commercial ID Picture" = "Please select your Commercial ID Picture";
+"Please select your location" = "Please select your location";
+"Please select the sub categories" = "Please select the sub categories";
+"Please select Services" = "Please select Services";
+"Notes must be greater than 4 letters." = "Notes must be greater than 4 letters.";
+"Please enter your Invoice Price." = "Please enter your Invoice Price.";
+"EMPTY_PASSWORD" = "Password cannot be empty.";
+"SHORT_PASSWORD" = "Password must be at least 6 characters.";
+"LONG_PASSWORD" = "Password must not exceed 52 characters.";
+"INVALID_CHARACTERS" = "Password must contain only English letters and numbers.";
+"Please enter new password field." = "Please enter new password field.";
+"New password is too short, it should be 6 characters at least." = "New password is too short, it should be 6 characters at least.";
+"Please enter old password field." = "Please enter old password field.";
+"Old password is too short, it should be 6 characters at least." = "Old password is too short, it should be 6 characters at least.";
+"Please enter confirm new password field." = "Please enter confirm new password field.";
+"Please enter confirm password field." = "Please enter confirm password field.";
+"Passwords not match." = "Passwords do not match.";
+"Password must contain at least one letter." = "Password must contain at least one letter.";
+"Password must contain at least one number." = "Password must contain at least one number.";
+"Password must contain at least one special character." = "Password must contain at least one special character.";
+"Password must contain at least one uppercase letter." = "Password must contain at least one uppercase letter.";
+"Please enter complaint field." = "Please enter complaint field.";
+"Complaint is too short. must be more than 4 characters." = "Complaint is too short. must be more than 4 characters.";
+"Complaint is too long. must be less than 256 characters." = "Complaint is too long. must be less than 256 characters.";
+"pickup_required_error" = "Please select pickup location";
+"dropoff_required_error" = "Please select dropoff location";
+"pickup_dropoff_same_error" = "Pickup location must be different from dropoff location";
+"empty_weight_validation_error" = "Please enter goods weight";
+"invalid_weight_validation_error" = "Invalid goods weight";
+"select_vehicle_validtion_error" = "Please select vehicle type";
+"select_payment_method_validtion_error" = "Please select payment method";
+"goods_type_required_error" = "Please enter goods type";
+"short_goods_type_error" = "Goods type must be at least 5 characters";
+"long_goods_type_error" = "Goods type must not exceed 256 characters";
+"select_flatbed_truck_validtion_error" = "Please select flatbed type";
+"flatbed_type_required_error" = "Please select flatbed type";
+"date_required_error" = "Please enter date";
+"time_required_error" = "Please enter time";
+"coupon_required_error" = "Please enter coupon code";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";

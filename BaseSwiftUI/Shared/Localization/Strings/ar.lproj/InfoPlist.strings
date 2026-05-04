@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  CTF
+
+  Created by Ahmed Ramadan on 29/12/2023.
+  
+*/
+
+"CFBundleDisplayName" = "BaseSwiftUI";
+"NSCameraUsageDescription" = "يحتاج الي اذنك لفتح الكاميرا لتحميل صوره ملفك الشخصي";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = " يريد الوصول إلى موقعك للحصول على أداء أفضل والسماح لك بالوصول إلى أقرب مقدمي الخدمة";
+"NSLocationAlwaysUsageDescription" = " يريد الوصول إلى موقعك للحصول على أداء أفضل والسماح لك بالوصول إلى أقرب مقدمي الخدمة";
+"NSLocationWhenInUseUsageDescription" = " يريد الوصول إلى موقعك للحصول على أداء أفضل والسماح لك بالوصول إلى أقرب مقدمي الخدمة";
+"NSPhotoLibraryUsageDescription" = "  يحتاج إلى إذنك لفتح معرض الصور الخاص بك ليتمكن من تحميل صور ملفك الشخصي";
+"NSMicrophoneUsageDescription" = " يريد إذنك للوصول إلى الميكروفون للسماح لك بإرسال رسائل صوتية";
