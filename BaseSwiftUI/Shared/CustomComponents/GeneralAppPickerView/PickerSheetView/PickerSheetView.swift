@@ -25,6 +25,7 @@ struct PickerSheetView<Item: GeneralPickerModel>: View {
     var body: some View {
         VStack(spacing: 8) {
 
+            Spacer(minLength: 8)
             Text(title)
                 .font(AppFont.semiBold(size: 16))
                 .padding(8)

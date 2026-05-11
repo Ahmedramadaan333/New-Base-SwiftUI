@@ -39,46 +39,52 @@ struct NewSwiftUIBaseApp: App {
     }
     
     private func setupNavigationBarAppearance() {
+
         let appearance = UINavigationBarAppearance()
-        
-        appearance.configureWithOpaqueBackground()
-        
-//        if let bgImage = UIImage(named: "backgroundNavStack") {
-//            appearance.backgroundImage = bgImage
-//        } else {
-//            
-//        }
+
+        // MARK: - Background (Clean & Stable)
+        appearance.configureWithTransparentBackground()
         appearance.backgroundColor = .clear
         appearance.shadowColor = .clear
-        
+
+        // MARK: - Back Button (Chevron only, no text)
         if let chevronImage = UIImage(systemName: "chevron.backward") {
             appearance.setBackIndicatorImage(chevronImage, transitionMaskImage: chevronImage)
         }
-        
+
         let backButtonAppearance = UIBarButtonItemAppearance()
-        backButtonAppearance.normal.titleTextAttributes      = [.foregroundColor: UIColor.clear]
-        backButtonAppearance.highlighted.titleTextAttributes = [.foregroundColor: UIColor.clear]
+
+        backButtonAppearance.normal.titleTextAttributes = [
+            .foregroundColor: UIColor.clear
+        ]
+
+        backButtonAppearance.highlighted.titleTextAttributes = [
+            .foregroundColor: UIColor.clear
+        ]
+
         appearance.backButtonAppearance = backButtonAppearance
-        
-        if let customTitleFont = UIFont(name: "SomarRounded-SemiBold", size: 16) {
-            appearance.titleTextAttributes = [
-                .font: customTitleFont,
-                .foregroundColor: UIColor.black
-            ]
-        } else {
-            appearance.titleTextAttributes = [
-                .foregroundColor: UIColor.black
-            ]
-        }
-        
-        UINavigationBar.appearance().standardAppearance   = appearance
+
+        // MARK: - Title Styling
+        let font = UIFont(name: "SomarRounded-SemiBold", size: 16)
+            ?? UIFont.systemFont(ofSize: 16, weight: .semibold)
+
+        appearance.titleTextAttributes = [
+            .font: font,
+            .foregroundColor: UIColor.black
+        ]
+
+        // MARK: - Apply Appearance (All states)
+        UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        UINavigationBar.appearance().compactAppearance    = appearance
-        
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().compactScrollEdgeAppearance = appearance
+
+        // MARK: - Tint Colors
         UINavigationBar.appearance().tintColor = .black
         UIBarButtonItem.appearance().tintColor = .black
-        
-        UINavigationBar.appearance().isTranslucent = false
+
+        // MARK: - iOS behavior
+        UINavigationBar.appearance().isTranslucent = true
     }
     
     private func setupKeyboardManager() {

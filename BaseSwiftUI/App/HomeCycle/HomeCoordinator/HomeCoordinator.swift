@@ -14,10 +14,8 @@ final class HomeCoordinator: BaseCoordinator<HomeRoute> {
     @ViewBuilder
     func destination(for route: HomeRoute) -> some View {
         switch route {
-
-
-        default:
-            EmptyView()
+        case .createOrder:
+            CreateOrderView()
         }
     }
 

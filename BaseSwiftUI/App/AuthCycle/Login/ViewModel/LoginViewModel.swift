@@ -8,6 +8,8 @@
 import Foundation
 
 class LoginViewModel: BaseViewModel {
+    
+    @Published var name: String = ""
     @Published var showLoading: Bool = false
     @Published var showError: Bool = false
     @Published var errorMessage: String?
@@ -129,24 +131,33 @@ extension LoginViewModel{
     }
     
     func getCountries() {
-        Task { [weak self] in
-            guard let self else { return }
-            
-            self.startLoading()
-            defer { self.stopLoading() }
-            
-            let endPoint = AuthEndPoint.getCountries()
-            do {
-                let data = try await self.request(endPoint)
-                guard let data = data else { return }
-                
-                self.countries = data
-                if self.selectedCountry == nil {
-                    self.selectedCountry = data.first
-                }
-            } catch {
-                self.emitError(error)
-            }
-        }
+        
+        let country = CountriesDataModel(
+            id: 1,
+            name: "Egypt",
+            key: "+20",
+            flag: "🇪🇬"
+        )
+        
+        countries.append(country)
+//        Task { [weak self] in
+//            guard let self else { return }
+//            
+//            self.startLoading()
+//            defer { self.stopLoading() }
+//            
+//            let endPoint = AuthEndPoint.getCountries()
+//            do {
+//                let data = try await self.request(endPoint)
+//                guard let data = data else { return }
+//                
+//                self.countries = data
+//                if self.selectedCountry == nil {
+//                    self.selectedCountry = data.first
+//                }
+//            } catch {
+//                self.emitError(error)
+//            }
+//        }
     }
 }

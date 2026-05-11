@@ -14,15 +14,27 @@ struct HomeView: View {
     @EnvironmentObject private var notificationsCoordinator: NotificationsCoordinator
     @EnvironmentObject private var appCoordinator: AppCoordinator
 
+    @State private var selectedItem: MockPickerItem?
     @State private var showLoginPopup = false
-
+    @State private var showSheet = false
+    @State private var isOn = false
     var body: some View {
         BaseScreen(title: "") {
             VStack(spacing: 0) {
 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 24) {
+                        Button {
+                            showSheet = true
+                        } label: {
+                            Text(selectedItem?.pickerTitle ?? "ttttestt")
+                                       .foregroundStyle(.primaryMain)
+                               }
+                               .font(.largeTitle)
+                               .foregroundColor(.red)
 
+                        
+                        
                         if !viewModel.sliderImages.isEmpty {
                             ImageSliderView(images: viewModel.sliderImages.map { ImageModel(image: $0.image ?? "") })
                                 .frame(height: 180)
@@ -73,44 +85,41 @@ struct HomeView: View {
             .frame(maxWidth: .infinity)
         }
         .frame(maxWidth: .infinity)
-//        .toolbar {
-//            ToolbarItem(placement: .principal) {
-//                Image(.logo)
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(height: 35)
-//            }
-//
-//            ToolbarItem(placement: .topBarTrailing) {
-//                Button {
-//                    requireLogin {
-//                        notificationsCoordinator.push(.notifications)
-//                    }
-//                } label: {
-//                    Image(.notificationBell)
-//                        .font(.system(size: 20, weight: .medium))
-//                        .foregroundColor(.white)
-//                        .padding(8)
-//                }
-//                .padding(.trailing, 16)
-//            }
-//        }
-//        .overlay {
-//            if showLoginPopup {
-//                LoginRequiredPopup(
-//                    isPresented: $showLoginPopup,
-//                    title: "login_required_title".localized,
-//                    buttonTitle: "login_title".localized,
-//                    onLogin: {
-//                        showLoginPopup = false
-//                        appCoordinator.showAuth()
-//                    }
-//                )
-//                .onTapGesture { }
-//            }
-//        }
+        .toolbar {
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    print("Notifications")
+                } label: {
+                    Image(systemName: "bell")
+                }
+            }
+            ToolbarItem(placement: .topBarLeading) {
+                VStack {
+                    Text("Status")
+                        .font(.body)
+                        .fixedSize()
+
+                    Toggle("", isOn: $isOn)
+                        .labelsHidden()
+                        .toggleStyle(SwitchToggleStyle())
+                        .scaleEffect(0.8)
+                }
+                .padding(.horizontal)
+            }
+        }
+        
         .alert(for: viewModel)
         .loader(for: viewModel)
+        
+        .sheet(isPresented: $showSheet) {
+            PickerSheetView(
+                title: "general_picker_title",
+                items: generalPickerItems,
+                selected: $selectedItem
+            )
+        }
+
     }
 
     private func requireLogin(_ action: () -> Void) {
@@ -120,7 +129,38 @@ struct HomeView: View {
             showLoginPopup = true
         }
     }
+    
+    private var generalPickerItems: [MockPickerItem] {
+        [
+            MockPickerItem(
+                pickerId: 1,
+                pickerTitle: "Option 1",
+                pickerImage: nil,
+                pickerSlug: "opt_1"
+            ),
+            MockPickerItem(
+                pickerId: 2,
+                pickerTitle: "Option 2",
+                pickerImage: nil,
+                pickerSlug: "opt_2"
+            ),
+            MockPickerItem(
+                pickerId: 3,
+                pickerTitle: "Option 3",
+                pickerImage: nil,
+                pickerSlug: "opt_3"
+            )
+        ]
+    }
 
 }
 
+struct MockPickerItem: GeneralPickerModel {
 
+    var id: Int { pickerId }
+
+    var pickerId: Int
+    var pickerTitle: String
+    var pickerImage: String?
+    var pickerSlug: String?
+}

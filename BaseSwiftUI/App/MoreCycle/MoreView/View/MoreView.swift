@@ -22,12 +22,6 @@ struct MoreScreen: View {
 
     var body: some View {
         ZStack(alignment: .top) {
-
-            Image(.backgroundNavStack)
-                .resizable()
-                .frame(height: 120)
-                .ignoresSafeArea(edges: .top)
-
             BaseScreen(
                 title: "",
                 background: .clear,

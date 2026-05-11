@@ -6,6 +6,6 @@
 //
 
 enum HomeRoute: Hashable {
-  
+  case createOrder
 }
 
