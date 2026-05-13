@@ -12,7 +12,7 @@
 		<string>SomarRounded-SemiBold.ttf</string>
 	</array>
 	<key>UIDesignRequiresCompatibility</key>
-	<false/>
+	<true/>
 	<key>API_BASE_URL</key>
 	<string>https://your-api-domain.com/api/</string>
 	<key>API_KEY</key>

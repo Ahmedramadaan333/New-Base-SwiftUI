@@ -10,9 +10,13 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var moreCoordinator: MoreCoordinator
     @EnvironmentObject var appCoordinator: AppCoordinator
-    
-    @StateObject private var viewModel = SettingsViewModel()
+
+    @StateObject var viewModel: SettingsViewModel
     @State private var isShowingDeletePopup = false
+
+    init(viewModel: SettingsViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         ZStack {
@@ -28,7 +32,7 @@ struct SettingsView: View {
                             },
                             imageName: MoreSectionsImages.profile.rawValue,
                             titleName: "show_profile_title".localized,
-                            titleColor: .black,
+                            titleColor: .primary,
                             showChevron: true
                         )
                         
@@ -40,7 +44,7 @@ struct SettingsView: View {
                             },
                             imageName: MoreSectionsImages.editPhone.rawValue,
                             titleName: "edit_phone_title".localized,
-                            titleColor: .black,
+                            titleColor: .primary,
                             showChevron: true
                         )
                         
@@ -52,7 +56,7 @@ struct SettingsView: View {
                             },
                             imageName: MoreSectionsImages.changeLanguage.rawValue,
                             titleName: "change_language_title".localized,
-                            titleColor: .black,
+                            titleColor: .primary,
                             showChevron: true
                         )
                         
@@ -77,7 +81,7 @@ struct SettingsView: View {
                             }
                         )
                     }
-                    .background(Color.white)
+                    .background(Color.cardBackground)
                     .cornerRadius(16)
                     .padding(.top, 16)
                     

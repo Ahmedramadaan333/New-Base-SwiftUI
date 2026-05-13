@@ -1,21 +1,20 @@
 //
 //  TermsCoordinator.swift
-//  CTF
+//  BaseSwiftUI
 //
-//  Created by Ahmed Ramadan on 25/11/2025.
-//
-
 
 import SwiftUI
 
-final class TermsCoordinator: BaseCoordinator<TermsRoute> { }
+final class TermsCoordinator: BaseCoordinator<TermsRoute> {
+    let container = MoreDIContainer()
+}
 
 extension TermsCoordinator {
     @ViewBuilder
     func destination(for route: TermsRoute) -> some View {
         switch route {
         case .terms:
-            AppInfoView(kind: .terms )
+            AppInfoView(kind: .terms, viewModel: container.makeAppInfoViewModel(kind: .terms))
         }
     }
 }

@@ -13,10 +13,15 @@ struct MoreScreen: View {
     @EnvironmentObject var moreCoordinator: MoreCoordinator
     @EnvironmentObject var termsCoordinator: TermsCoordinator
     @EnvironmentObject var notificationsCoordinator: NotificationsCoordinator
+    @EnvironmentObject var themeManager: AppThemeManager
 
-    @StateObject private var viewModel = MoreViewModel()
+    @StateObject var viewModel: MoreViewModel
     @State private var isShowingLogoutPopup = false
     @State private var showLoginPopup = false
+
+    init(viewModel: MoreViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     private var isLoggedIn: Bool { UserDefaults.isLogin }
 
@@ -110,6 +115,8 @@ struct MoreScreen: View {
 
     private var sectionsList: some View {
         VStack(spacing: 16) {
+            darkModeToggleRow
+
             ForEach(viewModel.sections) { section in
                 if !section.title.isEmpty {
                     HeaderTitleView(title: section.title)
@@ -127,10 +134,49 @@ struct MoreScreen: View {
                         Divider()
                     }
                 }
-                .background(Color.white)
+                .background(Color.cardBackground)
                 .cornerRadius(12)
             }
         }
+    }
+
+    private var animatedDarkModeBinding: Binding<Bool> {
+        Binding(
+            get: { themeManager.isDarkMode },
+            set: { newValue in
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    themeManager.isDarkMode = newValue
+                }
+            }
+        )
+    }
+
+    private var darkModeToggleRow: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Image(systemName: themeManager.isDarkMode ? "moon.fill" : "sun.max.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 22, height: 22)
+                    .foregroundStyle(Color.primaryMain)
+                    .animation(.easeInOut(duration: 0.5), value: themeManager.isDarkMode)
+
+                Text("dark_mode_title".localized)
+                    .font(AppFont.regular(size: 14))
+                    .padding(.leading, 4)
+
+                Spacer()
+
+                Toggle("", isOn: animatedDarkModeBinding)
+                    .labelsHidden()
+                    .frame(width: 52)
+            }
+            .padding(.horizontal, 16)
+            .frame(height: 50)
+            .contentShape(Rectangle())
+        }
+        .background(Color.cardBackground)
+        .cornerRadius(12)
     }
 
     private func setupSections() {
@@ -177,7 +223,7 @@ struct MoreScreen: View {
                 .scaledToFill()
                 .frame(width: 80, height: 80)
                 .clipShape(Circle())
-                .overlay(Circle().stroke(Color.white, lineWidth: 3))
+                .overlay(Circle().stroke(Color.cardBackground, lineWidth: 3))
                 .shadow(radius: 4)
 
             Text(UserDefaults.user?.name ?? "")

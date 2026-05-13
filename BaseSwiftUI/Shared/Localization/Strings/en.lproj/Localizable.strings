@@ -209,3 +209,6 @@
 "Error" = "Error";
 "Warning" = "Warning";
 "" = "";
+
+//MARK: - Theme -
+"dark_mode_title" = "Dark Mode";

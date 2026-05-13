@@ -1,8 +1,6 @@
 //
 //  MoreViewModel.swift
-//  NewSwiftUIBase
-//
-//  Created by Ahmed Ramadan on 31/07/2025.
+//  BaseSwiftUI
 //
 
 import Foundation
@@ -13,6 +11,17 @@ class MoreViewModel: BaseViewModel {
     @Published var signOutSuccessMessage: String?
 
     var onLogout: VoidCompletion?
+
+    // MARK: - Dependencies
+
+    private let signOutUseCase: SignOutUseCase
+
+    // MARK: - Init
+
+    init(signOutUseCase: SignOutUseCase) {
+        self.signOutUseCase = signOutUseCase
+        super.init()
+    }
 
     func configureSections(
         isLoggedIn: Bool,
@@ -38,16 +47,11 @@ class MoreViewModel: BaseViewModel {
             startLoading()
             defer { stopLoading() }
 
-            let endPoint = MoreEndPoint.signOut()
-
             do {
-                let response = try await getFullResponse(endPoint)
-                guard let response = response else { return }
-
+                let response = try await signOutUseCase.execute()
                 await MainActor.run {
-                    
                     self.signOutSuccessMessage = response.message
-                    self.emitSuccess(response.message)   
+                    self.emitSuccess(response.message)
                     UserDefaults.isLogin = false
                     UserDefaults.user = nil
                     UserDefaults.accessToken = nil
@@ -58,4 +62,3 @@ class MoreViewModel: BaseViewModel {
         }
     }
 }
-

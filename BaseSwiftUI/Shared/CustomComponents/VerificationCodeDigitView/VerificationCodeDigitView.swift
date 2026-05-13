@@ -29,7 +29,7 @@ struct VerificationCodeDigitView: View {
             .keyboardType(.numberPad)
             .frame(width: 60, height: 60)
 
-            .background(Color.white)
+            .background(Color.cardBackground)
             .cornerRadius(12)
 
             .overlay(

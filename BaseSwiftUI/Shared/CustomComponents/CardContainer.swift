@@ -16,7 +16,7 @@ struct CardContainer<Content: View>: View {
             .padding(16)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.white)
+                    .fill(Color.cardBackground)
             )
     }
 }

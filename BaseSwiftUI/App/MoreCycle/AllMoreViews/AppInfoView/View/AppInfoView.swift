@@ -12,10 +12,10 @@ import SwiftUI
 struct AppInfoView: View {
     private let kind: InfoScreenKind
     @StateObject private var viewModel: AppInfoViewModel
-    
-    init(kind: InfoScreenKind) {
+
+    init(kind: InfoScreenKind, viewModel: AppInfoViewModel) {
         self.kind = kind
-        _viewModel = StateObject(wrappedValue: AppInfoViewModel(kind: kind))
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {

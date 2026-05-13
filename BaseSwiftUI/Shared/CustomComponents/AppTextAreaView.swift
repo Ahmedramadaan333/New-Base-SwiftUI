@@ -32,7 +32,7 @@ struct AppTextAreaView: View {
         VStack(alignment: .trailing, spacing: 6) {
             Text(title)
                 .font(AppFont.medium(size: 14))
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             ZStack(alignment: .topLeading) {
@@ -40,7 +40,7 @@ struct AppTextAreaView: View {
                     .stroke(borderColor, lineWidth: 1)
                     .background(
                         RoundedRectangle(cornerRadius: 25)
-                            .fill(Color.white)
+                            .fill(Color.cardBackground)
                     )
 
                 TextEditor(text: $text)

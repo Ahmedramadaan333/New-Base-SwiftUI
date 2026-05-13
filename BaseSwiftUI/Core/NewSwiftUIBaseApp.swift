@@ -27,7 +27,6 @@ struct NewSwiftUIBaseApp: App {
             AppRootView()
                 .environment(\.locale, Locale(identifier: AppLanguageManager.shared.selectedLanguage))
                 .environment(\.layoutDirection, AppLanguageManager.shared.layoutDirection)
-                .preferredColorScheme(.light)
                 .onAppear {
                     if let token = UserDefaults.pushNotificationToken {
                         print("✅ [App] Current saved FCM Token: \(token)")
@@ -70,7 +69,7 @@ struct NewSwiftUIBaseApp: App {
 
         appearance.titleTextAttributes = [
             .font: font,
-            .foregroundColor: UIColor.black
+            .foregroundColor: UIColor.label
         ]
 
         // MARK: - Apply Appearance (All states)
@@ -80,8 +79,8 @@ struct NewSwiftUIBaseApp: App {
         UINavigationBar.appearance().compactScrollEdgeAppearance = appearance
 
         // MARK: - Tint Colors
-        UINavigationBar.appearance().tintColor = .black
-        UIBarButtonItem.appearance().tintColor = .black
+        UINavigationBar.appearance().tintColor = .label
+        UIBarButtonItem.appearance().tintColor = .label
 
         // MARK: - iOS behavior
         UINavigationBar.appearance().isTranslucent = true

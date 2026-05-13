@@ -9,7 +9,12 @@ import SwiftUI
 import Kingfisher
 
 struct ShowProfileView: View {
-    @StateObject private var viewModel = ShowProfileViewModel()
+    @StateObject var viewModel: ShowProfileViewModel
+
+    init(viewModel: ShowProfileViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         BaseScreen(title: "show_profile_title".localized) {
             VStack (spacing: 16){
@@ -20,7 +25,7 @@ struct ShowProfileView: View {
                     .clipShape(Circle())
                     .overlay(
                         Circle()
-                            .stroke(Color.white, lineWidth: 3)
+                            .stroke(Color.cardBackground, lineWidth: 3)
                     )
                     .shadow(radius: 4)
                 ShowTextLabelView(

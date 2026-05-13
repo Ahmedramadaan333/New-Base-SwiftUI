@@ -209,3 +209,6 @@
 "Error" = "خطأ";
 "Warning" = "تحذير";
 "" = "";
+
+//MARK: - Theme -
+"dark_mode_title" = "الوضع الداكن";

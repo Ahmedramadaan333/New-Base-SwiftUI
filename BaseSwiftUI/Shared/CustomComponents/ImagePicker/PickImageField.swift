@@ -67,7 +67,7 @@ struct PickImageField: View {
                                 picker.clear()
                             } label: {
                                 ZStack {
-                                    Circle().fill(Color.white)
+                                    Circle().fill(Color.cardBackground)
                                         .frame(width: 22, height: 22)
                                     Image(systemName: "trash.fill")
                                         .font(.system(size: 11, weight: .bold))

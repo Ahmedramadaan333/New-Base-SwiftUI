@@ -18,7 +18,7 @@ enum MoreSectionsFactory {
                 title: "settings_title".localized,
                 imageName: MoreSectionsImages.settings.rawValue,
                 showChevron: true,
-                titleColor: .black,
+                titleColor: .primary,
                 action: { navigate(.settings) }
             ),
             MoreItemModel(
@@ -26,7 +26,7 @@ enum MoreSectionsFactory {
                 title: "terms_and_conditions_title".localized,
                 imageName: MoreSectionsImages.terms.rawValue,
                 showChevron: true,
-                titleColor: .black,
+                titleColor: .primary,
                 action: { navigate(.terms) }
             ),
             MoreItemModel(
@@ -34,7 +34,7 @@ enum MoreSectionsFactory {
                 title:"about_app_title".localized,
                 imageName: MoreSectionsImages.aboutApp.rawValue,
                 showChevron: true,
-                titleColor: .black,
+                titleColor: .primary,
                 action: { navigate(.about) }
             ),
             MoreItemModel(
@@ -42,7 +42,7 @@ enum MoreSectionsFactory {
                 title:"privacy_title".localized,
                 imageName: MoreSectionsImages.policy.rawValue,
                 showChevron: true,
-                titleColor: .black,
+                titleColor: .primary,
                 action: { navigate(.privacy) }
             ),
             MoreItemModel(
@@ -89,7 +89,7 @@ extension MoreSectionsFactory {
                 title: "change_language_title".localized,
                 imageName: MoreSectionsImages.changeLanguage.rawValue,
                 showChevron: true,
-                titleColor: .black,
+                titleColor: .primary,
                 action: { navigate(.changeLanguage) }
             ),
             MoreItemModel(
@@ -97,7 +97,7 @@ extension MoreSectionsFactory {
                 title: "terms_and_conditions_title".localized,
                 imageName: MoreSectionsImages.terms.rawValue,
                 showChevron: true,
-                titleColor: .black,
+                titleColor: .primary,
                 action: { navigate(.terms) }
             ),
             MoreItemModel(
@@ -105,7 +105,7 @@ extension MoreSectionsFactory {
                 title: "about_app_title".localized,
                 imageName: MoreSectionsImages.aboutApp.rawValue,
                 showChevron: true,
-                titleColor: .black,
+                titleColor: .primary,
                 action: { navigate(.about) }
             ),
             MoreItemModel(
@@ -113,7 +113,7 @@ extension MoreSectionsFactory {
                 title: "privacy_title".localized,
                 imageName: MoreSectionsImages.policy.rawValue,
                 showChevron: true,
-                titleColor: .black,
+                titleColor: .primary,
                 action: { navigate(.privacy) }
             ),
             MoreItemModel(

@@ -1,41 +1,44 @@
 //
-//  ProfileCoordinator.swift
-//  CTF
-//
-//  Created by Ahmed Ramadan on 17/11/2025.
+//  MoreCoordinator.swift
+//  BaseSwiftUI
 //
 
-
-// MoreCoordinator.swift
 import SwiftUI
 
 @MainActor
 final class MoreCoordinator: BaseCoordinator<MoreCoordinatorRoute> {
+
     @Published var modalRoute: MoreModalRoute?
+
+    let container = MoreDIContainer()
 
     @ViewBuilder
     func destination(for route: MoreCoordinatorRoute) -> some View {
         switch route {
         case .profile:
-            ShowProfileView()
+            ShowProfileView(viewModel: container.makeShowProfileViewModel())
         case .settings:
-            SettingsView()
+            SettingsView(viewModel: container.makeSettingsViewModel())
         case .about:
-            AppInfoView(kind: .aboutApp)
+            AppInfoView(kind: .aboutApp, viewModel: container.makeAppInfoViewModel(kind: .aboutApp))
         case .privacy:
-            AppInfoView(kind: .privacy)
+            AppInfoView(kind: .privacy, viewModel: container.makeAppInfoViewModel(kind: .privacy))
         case .verfiyOldPhoneNumber:
-            VerificationCodeView(phone: UserDefaults.user?.phone ?? "", countryCode: UserDefaults.user?.countryCode ?? "", type: .sendSmsToCurrentPhone)
+            VerificationCodeView(viewModel: AuthDIContainer().makeVerificationCodeViewModel(
+                phone: UserDefaults.user?.phone ?? "",
+                countryCode: UserDefaults.user?.countryCode ?? "",
+                type: .sendSmsToCurrentPhone
+            ))
         case .verifyNewPhoneNumber(let phone, let countryCode):
-            VerificationCodeView(
+            VerificationCodeView(viewModel: AuthDIContainer().makeVerificationCodeViewModel(
                 phone: phone,
                 countryCode: countryCode,
                 type: .verifyNewPhone
-            )
+            ))
         case .changePhoneNumber:
-            ChangePhoneView()
+            ChangePhoneView(viewModel: container.makeChangePhoneViewModel())
         case .editProfile:
-            EditProfileView()
+            EditProfileView(viewModel: container.makeEditProfileViewModel())
         }
     }
 

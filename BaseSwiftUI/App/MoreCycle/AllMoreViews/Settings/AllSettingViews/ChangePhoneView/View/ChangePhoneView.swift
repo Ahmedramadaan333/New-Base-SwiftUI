@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ChangePhoneView: View {
-    @StateObject private var viewModel = ChangePhoneViewModel()
+    @StateObject var viewModel: ChangePhoneViewModel
     @EnvironmentObject var moreCoordinator: MoreCoordinator
+
+    init(viewModel: ChangePhoneViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         BaseScreen(title: "change_phone_title".localized) {

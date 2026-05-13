@@ -158,7 +158,7 @@ struct MainAppTextFieldView: View {
             }
             .padding(.horizontal)
             .frame(height: height)
-            .background(Color.white)
+            .background(Color.cardBackground)
             .cornerRadius(radius)
             .overlay(
                 RoundedRectangle(cornerRadius: radius)

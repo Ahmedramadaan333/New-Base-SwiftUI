@@ -37,8 +37,10 @@ extension Color {
         )
     }
     
-    static let primaryText = Color.black
-    static let secondaryText = Color.black.opacity(0.6)
+    /// Adaptive text color — black in light mode, white in dark mode.
+    static let primaryText = Color.primary
+    /// Adaptive secondary text color — follows system secondary label color.
+    static let secondaryText = Color.secondary
 }
 
 

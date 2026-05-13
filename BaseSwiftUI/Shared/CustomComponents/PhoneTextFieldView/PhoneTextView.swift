@@ -109,7 +109,7 @@ struct PhoneTextView<Country: CountryCodeModel>: View {
             }
             .padding(.horizontal, 8)
             .frame(height: height)
-            .background(Color.white)
+            .background(Color.cardBackground)
             .overlay(
                 RoundedRectangle(cornerRadius: radius)
                     .stroke(borderColor, lineWidth: 0.8)

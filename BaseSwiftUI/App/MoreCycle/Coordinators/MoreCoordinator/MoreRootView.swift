@@ -1,10 +1,7 @@
 //
 //  MoreRootView.swift
-//  CTF
+//  BaseSwiftUI
 //
-//  Created by Ahmed Ramadan on 26/11/2025.
-//
-
 
 import SwiftUI
 
@@ -12,11 +9,10 @@ struct MoreRootView: View {
     @EnvironmentObject var appCoordinator: AppCoordinator
     @EnvironmentObject var moreCoordinator: MoreCoordinator
     @EnvironmentObject var termsCoordinator: TermsCoordinator
-    
+
     var body: some View {
         NavigationStack(path: $moreCoordinator.path) {
-            MoreScreen()
-            
+            MoreScreen(viewModel: moreCoordinator.container.makeMoreViewModel())
         }
         .environmentObject(appCoordinator)
         .environmentObject(moreCoordinator)

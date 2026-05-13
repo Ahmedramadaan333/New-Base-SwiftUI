@@ -68,7 +68,7 @@ struct LocationPickerView: View {
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundStyle(.primary)
                             .padding(12)
-                            .background(.white)
+                            .background(Color.cardBackground)
                             .clipShape(Circle())
                             .shadow(radius: 6)
                     }
@@ -134,7 +134,7 @@ struct LocationPickerView: View {
             }
         }
         .padding(16)
-        .background(.white)
+        .background(Color.cardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(radius: 8)
     }

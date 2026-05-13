@@ -1,28 +1,33 @@
 //
 //  AuthRootView.swift
-//  CTF
-//
-//  Created by Ahmed Ramadan on 16/11/2025.
+//  BaseSwiftUI
 //
 
 import SwiftUI
 
 struct AuthRootView: View {
     @EnvironmentObject var authCoordinator: AuthCoordinator
-    
+
     var body: some View {
         NavigationStack(path: $authCoordinator.path) {
-            LoginView()
+            LoginView(viewModel: authCoordinator.container.makeLoginViewModel())
                 .navigationDestination(for: AuthRoute.self) { route in
                     switch route {
                     case let .verification(phone, countryCode):
                         VerificationCodeView(
-                            phone: phone,
-                            countryCode: countryCode, type: .loginAsUser
+                            viewModel: authCoordinator.container.makeVerificationCodeViewModel(
+                                phone: phone,
+                                countryCode: countryCode,
+                                type: .loginAsUser
                             )
+                        )
                     case let .completeRegisterData(phone, countryCode):
-                        CompleteRegisterDataView(phone: phone, countryCode: countryCode)
-                        
+                        CompleteRegisterDataView(
+                            viewModel: authCoordinator.container.makeCompleteRegisterDataViewModel(
+                                phone: phone,
+                                countryCode: countryCode
+                            )
+                        )
                     }
                 }
         }
@@ -32,7 +37,7 @@ struct AuthRootView: View {
                 LanguageSheetView {
                     authCoordinator.dismissModal()
                 }
-                .presentationDetents([.fraction(0.4)])  
+                .presentationDetents([.fraction(0.4)])
                 .presentationDragIndicator(.visible)
                 .interactiveDismissDisabled(false)
                 .presentationCornerRadius(40)

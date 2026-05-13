@@ -10,8 +10,12 @@ import Kingfisher
 
 struct EditProfileView: View {
     @StateObject private var imagePicker = ImagePickerCoordinator()
-    @StateObject private var viewModel = EditProfileViewModel()
+    @StateObject var viewModel: EditProfileViewModel
     @EnvironmentObject var moreCoordinator: MoreCoordinator
+
+    init(viewModel: EditProfileViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         BaseScreen(title: "edit_profile_title".localized) {
@@ -26,7 +30,7 @@ struct EditProfileView: View {
                             .clipShape(Circle())
                             .overlay(
                                 Circle()
-                                    .stroke(Color.white, lineWidth: 3)
+                                    .stroke(Color.cardBackground, lineWidth: 3)
                             )
                             .shadow(radius: 4)
                     } else {
@@ -41,7 +45,7 @@ struct EditProfileView: View {
                             .clipShape(Circle())
                             .overlay(
                                 Circle()
-                                    .stroke(Color.white, lineWidth: 3)
+                                    .stroke(Color.cardBackground, lineWidth: 3)
                             )
                             .shadow(radius: 4)
                     }
@@ -52,7 +56,7 @@ struct EditProfileView: View {
                         Image(systemName: "pencil.circle.fill")
                             .resizable()
                             .frame(width: 26, height: 26)
-                            .background(Color.white.clipShape(Circle()))
+                            .background(Color.cardBackground.clipShape(Circle()))
                     }
                     .offset(x: 4, y: 4)
                 }

@@ -1,10 +1,7 @@
 //
 //  HomeRootView.swift
-//  CTF
+//  BaseSwiftUI
 //
-//  Created by Ahmed Ramadan on 14/12/2025.
-//
-
 
 import SwiftUI
 
@@ -14,11 +11,10 @@ struct HomeRootView: View {
 
     var body: some View {
         NavigationStack(path: $homeCoordinator.path) {
-            HomeView()
+            HomeView(viewModel: homeCoordinator.container.makeHomeViewModel())
         }
         .environmentObject(appCoordinator)
         .environmentObject(homeCoordinator)
-//        .toolbar(.hidden, for: .navigationBar)
         .navigationDestination(for: HomeRoute.self) { route in
             homeCoordinator.destination(for: route)
         }

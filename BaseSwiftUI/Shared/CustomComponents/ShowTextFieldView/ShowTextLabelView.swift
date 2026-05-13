@@ -50,7 +50,7 @@ struct ShowTextLabelView: View {
 
                 Text(text)
                     .font(AppFont.regular(size: fontSize))
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 if let trailingImage = trailingImage {
@@ -62,7 +62,7 @@ struct ShowTextLabelView: View {
             }
             .frame(height: height)
             .padding(.horizontal, 12)
-            .background(Color.white)
+            .background(Color.cardBackground)
             .overlay(
                 RoundedRectangle(cornerRadius: radius)
                     .stroke(Color.primaryMain.opacity(0.7), lineWidth: 1)
