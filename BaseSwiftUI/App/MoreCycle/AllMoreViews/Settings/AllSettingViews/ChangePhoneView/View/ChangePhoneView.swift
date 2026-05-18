@@ -24,7 +24,6 @@ struct ChangePhoneView: View {
                         placeHolder: "new_phone_placeholder".localized,
                         phone: $viewModel.phone,
                         selectedCountry: $viewModel.selectedCountry,
-                        forceValidate: $viewModel.forceValidatePhone,
                         hasError: viewModel.phoneHasError,
                         errorMessage: viewModel.phoneError,
                         items: viewModel.countries,

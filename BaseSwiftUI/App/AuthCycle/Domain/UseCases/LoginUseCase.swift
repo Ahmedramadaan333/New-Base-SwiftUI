@@ -13,7 +13,10 @@ final class LoginUseCase {
         self.repository = repository
     }
 
+    // MARK: - Execute -
     func execute(model: UserRegisterModel) async throws -> BaseResponse<User> {
-        try await repository.login(authModel: model)
+        _ = try AuthValidationService.validate(phone: model.phone)
+        _ = try AuthValidationService.validate(name: model.name)
+        return try await repository.login(authModel: model)
     }
 }

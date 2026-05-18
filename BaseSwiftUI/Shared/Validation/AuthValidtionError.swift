@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AuthValidationError: Error{
+enum AuthValidationError: Error, Equatable {
     case emptyPhone
     case shortPhone
     case longPhone

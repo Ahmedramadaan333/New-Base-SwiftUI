@@ -7,24 +7,27 @@ import Foundation
 
 class LoginViewModel: BaseViewModel {
 
-    @Published var name: String = ""
     @Published var showLoading: Bool = false
     @Published var showError: Bool = false
     @Published var errorMessage: String?
     @Published var successMessage: String?
-    @Published var phoneError: String = ""
     @Published var phone: String = ""
+    @Published var phoneError: String = ""
+    @Published var name: String = ""
+    @Published var password: String = ""
+    @Published var confirmpassword: String = ""
+    @Published var nameError: String = ""
+    @Published var passwordError: String = ""
+    @Published var confirmpasswordError: String = ""
     @Published private(set) var countries = [CountriesDataModel]()
     @Published var selectedCountry: CountriesDataModel? = nil
-    @Published var forceValidatePhone = false
-
     @Published var isLoginSuccess = false
     @Published var loginModel: UserRegisterModel? = nil
 
-    var phoneHasError: Bool {
-        !phoneError.isEmpty
-    }
-
+    var phoneHasError: Bool { !phoneError.isEmpty }
+    var nameHasError: Bool { !nameError.isEmpty }
+    var passwordHasError: Bool { !passwordError.isEmpty }
+    var confirmpasswordHasError: Bool { !confirmpasswordError.isEmpty }
     // MARK: - Dependencies
 
     private let loginUseCase: LoginUseCase
@@ -39,18 +42,6 @@ class LoginViewModel: BaseViewModel {
         bindBaseViewModel()
     }
 
-    func liveValidatePhone(_ value: String) {
-        phoneError = ""
-        do {
-            _ = try AuthValidationService.validate(phone: value)
-        } catch let error as AuthValidationError {
-            if case .emptyPhone = error { return }
-            phoneError = error.localizedDescription
-        } catch {
-            emitError(error)
-        }
-    }
-
     private func bindBaseViewModel() {
         isLoadingSubject
             .receive(on: DispatchQueue.main)
@@ -59,6 +50,7 @@ class LoginViewModel: BaseViewModel {
                 showLoading = isLoading
             }
             .store(in: &cancellables)
+
         $phone
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
@@ -66,6 +58,29 @@ class LoginViewModel: BaseViewModel {
                 liveValidatePhone(value)
             }
             .store(in: &cancellables)
+
+        $name
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                guard let self else { return }
+                liveValidateName(value)
+            }
+            .store(in: &cancellables)
+        
+        $password
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value  in
+                guard let self = self else {return}
+                liveValidatePassword(value)
+            }.store(in: &cancellables)
+       
+        $confirmpassword
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value  in
+                guard let self = self else {return}
+                liveValidateConfirmPassword(password, value)
+            }.store(in: &cancellables)
+        
         $successMessage
             .receive(on: DispatchQueue.main)
             .sink { [weak self] message in
@@ -84,31 +99,63 @@ class LoginViewModel: BaseViewModel {
     }
 }
 
-// MARK: - Validation
+// MARK: - Live Validation (UX feedback while typing)
 
-extension LoginViewModel {
+private extension LoginViewModel {
 
-    private func handleValidationError(_ error: AuthValidationError) {
-        switch error {
-        case .emptyPhone, .shortPhone, .longPhone:
-            phoneError = error.localizedDescription
-        default:
-            emitError(error)
-        }
-    }
-
-    @MainActor
-    func validateLogin(model: UserRegisterModel) {
+    func liveValidatePhone(_ value: String) {
         phoneError = ""
         do {
-            _ = try AuthValidationService.validate(phone: model.phone)
-            login(model: model)
+            _ = try AuthValidationService.validate(phone: value)
         } catch let error as AuthValidationError {
-            handleValidationError(error)
+            if case .emptyPhone = error { return }
+            phoneError = error.localizedDescription
         } catch {
             emitError(error)
         }
     }
+
+    func liveValidateName(_ value: String) {
+        nameError = ""
+        do {
+            _ = try AuthValidationService.validate(name: value)
+        } catch let error as AuthValidationError {
+            if case .emptyName = error { return }
+            nameError = error.localizedDescription
+        } catch {
+            emitError(error)
+        }
+    }
+    
+    func liveValidatePassword(_ value: String) {
+        passwordError = ""
+        do{
+            _ = try AuthValidationService.validate(password: value)
+        }catch let error as AuthValidationError {
+            if case .emptyPassword = error {
+                return
+            }
+            passwordError = error.localizedDescription
+        }catch{
+            emitError(error)
+        }
+    }
+    
+    
+    func liveValidateConfirmPassword(_ value: String, _ confirmValue: String) {
+        confirmpasswordError = ""
+        do{
+            _ = try AuthValidationService.validate(password: value, confirmPassword: confirmValue)
+        }catch let error as AuthValidationError {
+            if case .emptyConfirmPassword = error {
+                return
+            }
+            confirmpasswordError = error.localizedDescription
+        }catch{
+            emitError(error)
+        }
+    }
+    
 }
 
 // MARK: - Networking
@@ -116,18 +163,36 @@ extension LoginViewModel {
 @MainActor
 extension LoginViewModel {
 
-    private func login(model: UserRegisterModel) {
+    func login() {
         Task {
-            self.startLoading()
-            defer { self.stopLoading() }
+            startLoading()
+            defer { stopLoading() }
             do {
+                let model = UserRegisterModel(
+                    name: name,
+                    phone: phone,
+                    countryCode: selectedCountry?.countryCode
+                )
                 let data = try await loginUseCase.execute(model: model)
                 successMessage = data.message
-                self.loginModel = model
-                self.isLoginSuccess = true
+                loginModel = model
+                isLoginSuccess = true
+            } catch let error as AuthValidationError {
+                handleValidationError(error)
             } catch {
                 emitError(error)
             }
+        }
+    }
+
+    private func handleValidationError(_ error: AuthValidationError) {
+        switch error {
+        case .emptyPhone, .shortPhone, .longPhone:
+            phoneError = error.localizedDescription
+        case .emptyName, .shortName, .longName:
+            nameError = error.localizedDescription
+        default:
+            emitError(error)
         }
     }
 

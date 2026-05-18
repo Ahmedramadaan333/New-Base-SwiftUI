@@ -10,7 +10,6 @@ import UIKit
 
 struct MainAppTextFieldView: View {
     @Binding var text: String
-    @Binding var forceValidate: Bool
     let title: String
     let placeHolder: String
     let submitLabel: SubmitLabel
@@ -42,7 +41,6 @@ struct MainAppTextFieldView: View {
 
     init(
         text: Binding<String>,
-        forceValidate: Binding<Bool> = .constant(true),
         title: String,
         placeHolder: String,
         submitLabel: SubmitLabel,
@@ -59,7 +57,6 @@ struct MainAppTextFieldView: View {
         errorMessage: String = ""
     ) {
         self._text = text
-        self._forceValidate = forceValidate
         self.title = title
         self.placeHolder = placeHolder
         self.submitLabel = submitLabel
@@ -185,12 +182,10 @@ struct MainAppTextFieldView: View {
 
 struct MainAppTF_Previews: PreviewProvider {
     @State static var sampleText: String = ""
-    @State static var shouldValidate: Bool = true
 
     static var previews: some View {
         MainAppTextFieldView(
             text: $sampleText,
-            forceValidate: $shouldValidate,
             title: "Phone Number",
             placeHolder: "Enter your number",
             submitLabel: .done,

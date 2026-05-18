@@ -65,7 +65,6 @@ struct EditProfileView: View {
                 
                 MainAppTextFieldView(
                     text: $viewModel.name,
-                    forceValidate: .constant(true),
                     title: "username_title".localized,
                     placeHolder: "username_placholder".localized,
                     submitLabel: .next,
@@ -77,7 +76,6 @@ struct EditProfileView: View {
                 
                 MainAppTextFieldView(
                     text: $viewModel.email,
-                    forceValidate: .constant(false),
                     title: "email_title".localized,
                     placeHolder: "email_placholder".localized,
                     submitLabel: .done,

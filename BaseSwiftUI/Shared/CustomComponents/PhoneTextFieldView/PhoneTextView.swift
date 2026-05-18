@@ -13,7 +13,6 @@ struct PhoneTextView<Country: CountryCodeModel>: View {
     let placeHolder: String
     @Binding var phone: String
     @Binding var selectedCountry: Country?
-    @Binding var forceValidate: Bool
     let hasError: Bool
     let errorMessage: String
     let items: [Country]
@@ -25,7 +24,6 @@ struct PhoneTextView<Country: CountryCodeModel>: View {
         placeHolder: String,
         phone: Binding<String>,
         selectedCountry: Binding<Country?>,
-        forceValidate: Binding<Bool>,
         hasError: Bool,
         errorMessage: String = "",
         items: [Country],
@@ -37,7 +35,6 @@ struct PhoneTextView<Country: CountryCodeModel>: View {
         self.placeHolder = placeHolder
         self._phone = phone
         self._selectedCountry = selectedCountry
-        self._forceValidate = forceValidate
         self.hasError = hasError
         self.errorMessage = errorMessage
         self.items = items
@@ -129,11 +126,6 @@ struct PhoneTextView<Country: CountryCodeModel>: View {
                 items: items,
                 selected: $selectedCountry
             )
-        }
-        .onChange(of: selectedCountry) { _ in
-            if selectedCountry != nil {
-                forceValidate = false
-            }
         }
     }
 }

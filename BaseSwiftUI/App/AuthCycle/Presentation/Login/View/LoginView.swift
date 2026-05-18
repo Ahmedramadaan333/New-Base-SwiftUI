@@ -13,63 +13,92 @@ struct LoginView: View {
     init(viewModel: LoginViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
-    
+
     var body: some View {
         ZStack {
           //  LinearGradient.mainVertical.ignoresSafeArea()
-            
+
             VStack(spacing: 0) {
 //                HeaderView()
 //                    .frame(height: 220)
 //                    .ignoresSafeArea(edges: .top)
-                
+
                 ZStack(alignment: .bottom) {
                     Color.backgroundView
                         .ignoresSafeArea(edges: .bottom)
-                    
+
                     ScrollView {
                         VStack(alignment: .leading ,spacing: 8) {
-                            
+
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("login_title".localized)
                                     .font(AppFont.bold(size: 18))
-                                
+
                                 Text("login_description".localized)
                                     .font(AppFont.semiBold(size: 14))
                                     .foregroundColor(.secondary)
                             }
                             .padding(16)
-                            
+
                             VStack(alignment: .leading, spacing: 8) {
                                 PhoneTextView(
                                     title: "Phone Number".localized,
                                     placeHolder: "Please enter your phone number".localized,
                                     phone: $viewModel.phone,
                                     selectedCountry: $viewModel.selectedCountry,
-                                    forceValidate: $viewModel.forceValidatePhone,
                                     hasError: viewModel.phoneHasError,
                                     errorMessage: viewModel.phoneError,
                                     items: viewModel.countries,
                                     height: 50
                                 ).padding(16)
+
+                                MainAppTextFieldView(
+                                    text: $viewModel.name,
+                                    title: "Name",
+                                    placeHolder: "Enter Your name",
+                                    submitLabel: .done,
+                                    keyboardType: .default,
+                                    isSecure: false,
+                                    hasError: viewModel.nameHasError,
+                                    errorMessage: viewModel.nameError
+                                ).padding(16)
+
+                                MainAppTextFieldView(
+                                    text: $viewModel.password,
+                                    title: "Password",
+                                    placeHolder: "Enter your pass",
+                                    submitLabel: .done,
+                                    keyboardType: .default,
+                                    isPhone: false,
+                                    isSecure: true,
+                                    hasError: viewModel.passwordHasError,
+                                    errorMessage: viewModel.passwordError
+                                )
+                                
+                                MainAppTextFieldView(
+                                    text: $viewModel.confirmpassword,
+                                    title: "Confirm pass",
+                                    placeHolder: "Enter your pass",
+                                    submitLabel: .done,
+                                    keyboardType: .default,
+                                    isPhone: false,
+                                    isSecure: true,
+                                    hasError: viewModel.confirmpasswordHasError,
+                                    errorMessage: viewModel.confirmpasswordError
+                                )
                                 
                                 VStack {
                                     MainAppButton(
                                         title: "login_title".localized,
                                         action: {
-                                            let countryCode = viewModel.selectedCountry?.countryCode
-                                            let model = UserRegisterModel(
-                                                phone: viewModel.phone,
-                                                countryCode: countryCode
-                                            )
-                                            viewModel.validateLogin(model: model)
+                                            viewModel.login()
                                         }
                                     )
                                 }
                                 .padding(8)
                             }
                             .padding(4)
-                            
+
                             HStack {
                                 Spacer()
                                 Button {
@@ -83,13 +112,13 @@ struct LoginView: View {
                                 Spacer()
                             }
                             .padding(.top, 4)
-                            
+
                             Spacer(minLength: 80)
                         }
                         .padding(.top, 16)
                         .padding(.bottom, 40)
                     }
-                    
+
                     Button {
                         authCoordinator.present(.language)
                     } label: {
@@ -123,16 +152,16 @@ struct LoginView: View {
             if isSuccess,
                let phone = viewModel.loginModel?.phone,
                let countryCode = viewModel.loginModel?.countryCode{
-                
+
                 authCoordinator.push(.verification(phone: phone, countryCode: countryCode))
             }
         }
-        
+
         .onDisappear {
             print("LoginView disappeared")
         }
     }
-    
+
 }
 
  struct HeaderView: View {
