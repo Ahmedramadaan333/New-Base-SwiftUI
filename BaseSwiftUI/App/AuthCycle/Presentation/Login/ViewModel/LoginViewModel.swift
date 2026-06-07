@@ -4,90 +4,92 @@
 //
 
 import Foundation
+import Combine
 
 class LoginViewModel: BaseViewModel {
+
+    // MARK: - Form Fields
+    // One @Published var per field — value, error, and hasError are all inside FieldState.
+
+    @Published var phone           = FieldState()
+    @Published var name            = FieldState()
+    @Published var password        = FieldState()
+    @Published var confirmPassword = FieldState()
+
+    // MARK: - Other State
 
     @Published var showLoading: Bool = false
     @Published var showError: Bool = false
     @Published var errorMessage: String?
     @Published var successMessage: String?
-    @Published var phone: String = ""
-    @Published var phoneError: String = ""
-    @Published var name: String = ""
-    @Published var password: String = ""
-    @Published var confirmpassword: String = ""
-    @Published var nameError: String = ""
-    @Published var passwordError: String = ""
-    @Published var confirmpasswordError: String = ""
-    @Published private(set) var countries = [CountriesDataModel]()
+    @Published private(set) var countries: [CountriesDataModel] = []
     @Published var selectedCountry: CountriesDataModel? = nil
     @Published var isLoginSuccess = false
     @Published var loginModel: UserRegisterModel? = nil
 
-    var phoneHasError: Bool { !phoneError.isEmpty }
-    var nameHasError: Bool { !nameError.isEmpty }
-    var passwordHasError: Bool { !passwordError.isEmpty }
-    var confirmpasswordHasError: Bool { !confirmpasswordError.isEmpty }
     // MARK: - Dependencies
 
     private let loginUseCase: LoginUseCase
     private let getCountriesUseCase: GetCountriesUseCase
+    private let validateFieldsUseCase: ValidateLoginFieldsUseCase
 
     // MARK: - Init
 
-    init(loginUseCase: LoginUseCase, getCountriesUseCase: GetCountriesUseCase) {
+    init(
+        loginUseCase: LoginUseCase,
+        getCountriesUseCase: GetCountriesUseCase,
+        validateFieldsUseCase: ValidateLoginFieldsUseCase
+    ) {
         self.loginUseCase = loginUseCase
         self.getCountriesUseCase = getCountriesUseCase
+        self.validateFieldsUseCase = validateFieldsUseCase
         super.init()
+        bindLiveValidations()
         bindBaseViewModel()
     }
+
+    // MARK: - Live Validation
+    // One bindField call per field replaces:
+    //   • the 6-line sink block
+    //   • the liveValidateX() function
+    // Validation rules live in ValidateLoginFieldsUseCase (Domain layer).
+
+    private func bindLiveValidations() {
+        bindField(on: self, $phone.map(\.value).eraseToAnyPublisher(), errorPath: \.phone.error) {
+            [weak self] value in self?.validateFieldsUseCase.liveValidate(phone: value)
+        }
+
+        bindField(on: self, $name.map(\.value).eraseToAnyPublisher(), errorPath: \.name.error) {
+            [weak self] value in self?.validateFieldsUseCase.liveValidate(name: value)
+        }
+
+        bindField(on: self, $password.map(\.value).eraseToAnyPublisher(), errorPath: \.password.error) {
+            [weak self] value in self?.validateFieldsUseCase.liveValidate(password: value)
+        }
+
+        // confirmPassword re-validates whenever either confirmPassword OR password changes.
+        Publishers.CombineLatest($confirmPassword.map(\.value), $password.map(\.value))
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] confirm, pass in
+                guard let self else { return }
+                guard !confirm.isEmpty else { confirmPassword.error = ""; return }
+                confirmPassword.error = validateFieldsUseCase.liveValidate(
+                    confirmPassword: confirm,
+                    against: pass
+                ) ?? ""
+            }
+            .store(in: &cancellables)
+    }
+
+    // MARK: - Base ViewModel bindings
 
     private func bindBaseViewModel() {
         isLoadingSubject
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] isLoading in
-                guard let self else { return }
-                showLoading = isLoading
-            }
+            .sink { [weak self] in self?.showLoading = $0 }
             .store(in: &cancellables)
 
-        $phone
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] value in
-                guard let self else { return }
-                liveValidatePhone(value)
-            }
-            .store(in: &cancellables)
-
-        $name
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] value in
-                guard let self else { return }
-                liveValidateName(value)
-            }
-            .store(in: &cancellables)
-        
-        $password
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] value  in
-                guard let self = self else {return}
-                liveValidatePassword(value)
-            }.store(in: &cancellables)
-       
-        $confirmpassword
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] value  in
-                guard let self = self else {return}
-                liveValidateConfirmPassword(password, value)
-            }.store(in: &cancellables)
-        
-        $successMessage
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] message in
-                guard let self, let message else { return }
-                emitSuccess(message)
-            }
-            .store(in: &cancellables)
         errorSubject
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
@@ -96,66 +98,13 @@ class LoginViewModel: BaseViewModel {
                 showError = true
             }
             .store(in: &cancellables)
-    }
-}
 
-// MARK: - Live Validation (UX feedback while typing)
-
-private extension LoginViewModel {
-
-    func liveValidatePhone(_ value: String) {
-        phoneError = ""
-        do {
-            _ = try AuthValidationService.validate(phone: value)
-        } catch let error as AuthValidationError {
-            if case .emptyPhone = error { return }
-            phoneError = error.localizedDescription
-        } catch {
-            emitError(error)
-        }
+        $successMessage
+            .receive(on: DispatchQueue.main)
+            .compactMap { $0 }
+            .sink { [weak self] in self?.emitSuccess($0) }
+            .store(in: &cancellables)
     }
-
-    func liveValidateName(_ value: String) {
-        nameError = ""
-        do {
-            _ = try AuthValidationService.validate(name: value)
-        } catch let error as AuthValidationError {
-            if case .emptyName = error { return }
-            nameError = error.localizedDescription
-        } catch {
-            emitError(error)
-        }
-    }
-    
-    func liveValidatePassword(_ value: String) {
-        passwordError = ""
-        do{
-            _ = try AuthValidationService.validate(password: value)
-        }catch let error as AuthValidationError {
-            if case .emptyPassword = error {
-                return
-            }
-            passwordError = error.localizedDescription
-        }catch{
-            emitError(error)
-        }
-    }
-    
-    
-    func liveValidateConfirmPassword(_ value: String, _ confirmValue: String) {
-        confirmpasswordError = ""
-        do{
-            _ = try AuthValidationService.validate(password: value, confirmPassword: confirmValue)
-        }catch let error as AuthValidationError {
-            if case .emptyConfirmPassword = error {
-                return
-            }
-            confirmpasswordError = error.localizedDescription
-        }catch{
-            emitError(error)
-        }
-    }
-    
 }
 
 // MARK: - Networking
@@ -168,9 +117,10 @@ extension LoginViewModel {
             startLoading()
             defer { stopLoading() }
             do {
+                // LoginUseCase.execute owns submit-time validation (throws AuthValidationError).
                 let model = UserRegisterModel(
-                    name: name,
-                    phone: phone,
+                    name: name.value,
+                    phone: phone.value,
                     countryCode: selectedCountry?.countryCode
                 )
                 let data = try await loginUseCase.execute(model: model)
@@ -178,37 +128,23 @@ extension LoginViewModel {
                 loginModel = model
                 isLoginSuccess = true
             } catch let error as AuthValidationError {
-                handleValidationError(error)
+                // Map thrown validation errors back to the correct field.
+                switch error {
+                case .emptyPhone, .shortPhone, .longPhone:
+                    phone.error = error.localizedDescription
+                case .emptyName, .shortName, .longName:
+                    name.error = error.localizedDescription
+                default:
+                    emitError(error)
+                }
             } catch {
                 emitError(error)
             }
         }
     }
 
-    private func handleValidationError(_ error: AuthValidationError) {
-        switch error {
-        case .emptyPhone, .shortPhone, .longPhone:
-            phoneError = error.localizedDescription
-        case .emptyName, .shortName, .longName:
-            nameError = error.localizedDescription
-        default:
-            emitError(error)
-        }
-    }
-
     func getCountries() {
         let country = CountriesDataModel(id: 1, name: "Egypt", key: "+20", flag: "🇪🇬")
         countries.append(country)
-        // Uncomment to fetch from API via use case:
-        // Task { [weak self] in
-        //     guard let self else { return }
-        //     self.startLoading()
-        //     defer { self.stopLoading() }
-        //     do {
-        //         let data = try await getCountriesUseCase.execute()
-        //         self.countries = data ?? []
-        //         if self.selectedCountry == nil { self.selectedCountry = data?.first }
-        //     } catch { self.emitError(error) }
-        // }
     }
 }

@@ -44,49 +44,49 @@ struct LoginView: View {
                                 PhoneTextView(
                                     title: "Phone Number".localized,
                                     placeHolder: "Please enter your phone number".localized,
-                                    phone: $viewModel.phone,
+                                    phone: $viewModel.phone.value,
                                     selectedCountry: $viewModel.selectedCountry,
-                                    hasError: viewModel.phoneHasError,
-                                    errorMessage: viewModel.phoneError,
+                                    hasError: viewModel.phone.hasError,
+                                    errorMessage: viewModel.phone.error,
                                     items: viewModel.countries,
                                     height: 50
                                 ).padding(16)
 
                                 MainAppTextFieldView(
-                                    text: $viewModel.name,
+                                    text: $viewModel.name.value,
                                     title: "Name",
                                     placeHolder: "Enter Your name",
                                     submitLabel: .done,
                                     keyboardType: .default,
                                     isSecure: false,
-                                    hasError: viewModel.nameHasError,
-                                    errorMessage: viewModel.nameError
+                                    hasError: viewModel.name.hasError,
+                                    errorMessage: viewModel.name.error
                                 ).padding(16)
 
                                 MainAppTextFieldView(
-                                    text: $viewModel.password,
+                                    text: $viewModel.password.value,
                                     title: "Password",
                                     placeHolder: "Enter your pass",
                                     submitLabel: .done,
                                     keyboardType: .default,
                                     isPhone: false,
                                     isSecure: true,
-                                    hasError: viewModel.passwordHasError,
-                                    errorMessage: viewModel.passwordError
+                                    hasError: viewModel.password.hasError,
+                                    errorMessage: viewModel.password.error
                                 )
-                                
+
                                 MainAppTextFieldView(
-                                    text: $viewModel.confirmpassword,
+                                    text: $viewModel.confirmPassword.value,
                                     title: "Confirm pass",
                                     placeHolder: "Enter your pass",
                                     submitLabel: .done,
                                     keyboardType: .default,
                                     isPhone: false,
                                     isSecure: true,
-                                    hasError: viewModel.confirmpasswordHasError,
-                                    errorMessage: viewModel.confirmpasswordError
+                                    hasError: viewModel.confirmPassword.hasError,
+                                    errorMessage: viewModel.confirmPassword.error
                                 )
-                                
+
                                 VStack {
                                     MainAppButton(
                                         title: "login_title".localized,
@@ -151,12 +151,10 @@ struct LoginView: View {
         .onReceive(viewModel.$isLoginSuccess) { isSuccess in
             if isSuccess,
                let phone = viewModel.loginModel?.phone,
-               let countryCode = viewModel.loginModel?.countryCode{
-
+               let countryCode = viewModel.loginModel?.countryCode {
                 authCoordinator.push(.verification(phone: phone, countryCode: countryCode))
             }
         }
-
         .onDisappear {
             print("LoginView disappeared")
         }

@@ -14,6 +14,8 @@ final class VerificationCodeViewModel: BaseViewModel {
     let countryCode: String
     let type: AuthVerificationType
 
+    // No live validation on code — it is assembled digit-by-digit in the View
+    // and set in full just before handleConfirm() is called.
     @Published var code: String = ""
 
     // MARK: - Timer
@@ -28,12 +30,12 @@ final class VerificationCodeViewModel: BaseViewModel {
     @Published var registerModel = UserRegisterModel()
 
     var isVerifyAndSignupAsUser = PassthroughSubject<BaseResponse<User>, Never>()
-    var isVerifyUserLogin = PassthroughSubject<BaseResponse<User>, Never>()
-    var isResendCode = PassthroughSubject<BaseResponse<User>, Never>()
+    var isVerifyUserLogin       = PassthroughSubject<BaseResponse<User>, Never>()
+    var isResendCode            = PassthroughSubject<BaseResponse<User>, Never>()
     var isSendSmsToCurrentPhone = PassthroughSubject<BaseResponse<User>, Never>()
-    var isVerifyCurrentPhone = PassthroughSubject<BaseResponse<User>, Never>()
-    var isSendSmsToNewPhone = PassthroughSubject<BaseResponse<User>, Never>()
-    var isVerifyNewPhone = PassthroughSubject<BaseResponse<User>, Never>()
+    var isVerifyCurrentPhone    = PassthroughSubject<BaseResponse<User>, Never>()
+    var isSendSmsToNewPhone     = PassthroughSubject<BaseResponse<User>, Never>()
+    var isVerifyNewPhone        = PassthroughSubject<BaseResponse<User>, Never>()
 
     @Published var registerMessage: BaseResponse<User>?
 
@@ -42,6 +44,7 @@ final class VerificationCodeViewModel: BaseViewModel {
     private let verifyCodeUseCase: VerifyCodeUseCase
     private let resendCodeUseCase: ResendCodeUseCase
     private let changePhoneUseCase: ChangePhoneUseCase
+    private let validateFieldsUseCase: ValidateVerificationFieldsUseCase
 
     // MARK: - Init / Deinit
 
@@ -51,7 +54,8 @@ final class VerificationCodeViewModel: BaseViewModel {
         type: AuthVerificationType,
         verifyCodeUseCase: VerifyCodeUseCase,
         resendCodeUseCase: ResendCodeUseCase,
-        changePhoneUseCase: ChangePhoneUseCase
+        changePhoneUseCase: ChangePhoneUseCase,
+        validateFieldsUseCase: ValidateVerificationFieldsUseCase
     ) {
         self.phone = phone
         self.countryCode = countryCode
@@ -59,6 +63,7 @@ final class VerificationCodeViewModel: BaseViewModel {
         self.verifyCodeUseCase = verifyCodeUseCase
         self.resendCodeUseCase = resendCodeUseCase
         self.changePhoneUseCase = changePhoneUseCase
+        self.validateFieldsUseCase = validateFieldsUseCase
         super.init()
     }
 
@@ -101,11 +106,19 @@ final class VerificationCodeViewModel: BaseViewModel {
     func handleConfirm() {
         switch type {
         case .loginAsUser:
-            validation(code: code)
+            validateAndRun(code: code) { [weak self] validCode in
+                guard let self else { return }
+                verifyUserLogin(phone: phone, code: validCode, countryCode: countryCode)
+            }
         case .sendSmsToCurrentPhone:
-            validationCurrentPhone(code: code)
+            validateAndRun(code: code) { [weak self] validCode in
+                self?.verifyCurrentPhone(code: validCode)
+            }
         case .verifyNewPhone:
-            validationNewPhone(code: code)
+            validateAndRun(code: code) { [weak self] validCode in
+                guard let self else { return }
+                verifyNewPhone(phone: phone, code: validCode, countryCode: countryCode)
+            }
         }
     }
 
@@ -114,39 +127,20 @@ final class VerificationCodeViewModel: BaseViewModel {
         case .loginAsUser, .verifyNewPhone:
             resendCode(phone: phone, countryCode: countryCode)
         case .sendSmsToCurrentPhone:
-            let currentPhone = "\(UserDefaults.user?.phone ?? "")"
-            let currentCountry = "\(UserDefaults.user?.countryCode ?? "")"
+            let currentPhone   = UserDefaults.user?.phone ?? ""
+            let currentCountry = UserDefaults.user?.countryCode ?? ""
             resendCode(phone: currentPhone, countryCode: currentCountry)
         }
     }
-}
 
-// MARK: - Validation
+    // MARK: - Private helpers
 
-extension VerificationCodeViewModel {
-
-    func validation(code: String) {
+    /// Validates the code via the use case, then runs `action` with the validated value.
+    private func validateAndRun(code: String, action: @escaping (String) -> Void) {
         do {
-            registerModel.code = try AuthValidationService.validate(verificationCode: code)
-            verifyUserLogin(phone: phone, code: code, countryCode: countryCode)
-        } catch {
-            emitError(error)
-        }
-    }
-
-    func validationCurrentPhone(code: String) {
-        do {
-            let validatedCode = try AuthValidationService.validate(verificationCode: code)
-            verifyCurrentPhone(code: validatedCode)
-        } catch {
-            emitError(error)
-        }
-    }
-
-    func validationNewPhone(code: String) {
-        do {
-            let validatedCode = try AuthValidationService.validate(verificationCode: code)
-            verifyNewPhone(phone: phone, code: validatedCode, countryCode: countryCode)
+            let validCode = try validateFieldsUseCase.validate(code: code)
+            registerModel.code = validCode
+            action(validCode)
         } catch {
             emitError(error)
         }

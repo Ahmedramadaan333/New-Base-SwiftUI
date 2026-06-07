@@ -157,6 +157,53 @@ extension BaseViewModel {
     }
 }
 
+// MARK: - Live Field Binding
+
+extension BaseViewModel {
+
+    /// Connects one `@Published var xField: FieldState` to its live-validation rule.
+    ///
+    /// Replaces the 6-line `sink` block that every field used to need.
+    /// Call once per field inside `init`, after `super.init()`.
+    ///
+    /// ```swift
+    /// bindField(
+    ///     on: self,
+    ///     $phone.map(\.value).eraseToAnyPublisher(),
+    ///     errorPath: \.phone.error
+    /// ) { [weak self] value in
+    ///     self?.validateFieldsUseCase.liveValidate(phone: value)
+    /// }
+    /// ```
+    ///
+    /// - Parameters:
+    ///   - root:      The ViewModel instance (always pass `self`).
+    ///   - publisher: A `String` publisher derived from the field's value — e.g. `$phone.map(\.value).eraseToAnyPublisher()`.
+    ///   - errorPath: Key path to the field's `error` string — e.g. `\.phone.error`.
+    ///   - rule:      Closure that calls the Domain use case. Return `nil` = valid, `String` = error message.
+    func bindField<Root: BaseViewModel>(
+        on root: Root,
+        _ publisher: AnyPublisher<String, Never>,
+        errorPath: ReferenceWritableKeyPath<Root, String>,
+        rule: @escaping (String) -> String?
+    ) {
+        publisher
+            .dropFirst()                        // ignore the empty initial value on init
+            .receive(on: DispatchQueue.main)
+            .sink { [weak root] value in
+                guard let root else { return }
+                // Presentation concern: stay silent while the field is still empty.
+                // The domain rule is only invoked once the user has typed something.
+                if value.isEmpty {
+                    root[keyPath: errorPath] = ""
+                    return
+                }
+                root[keyPath: errorPath] = rule(value) ?? ""
+            }
+            .store(in: &cancellables)
+    }
+}
+
 // MARK: - Notification Name
 
 extension Notification.Name {

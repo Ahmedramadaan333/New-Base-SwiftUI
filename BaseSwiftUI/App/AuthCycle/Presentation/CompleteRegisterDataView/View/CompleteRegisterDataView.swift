@@ -57,14 +57,14 @@ struct CompleteRegisterDataView: View {
                         }
                         
                         MainAppTextFieldView(
-                            text: $viewModel.name,
+                            text: $viewModel.name.value,
                             title: "username_title".localized,
                             placeHolder: "username_placholder".localized,
                             submitLabel: .next,
                             keyboardType: .default,
                             leadingImage: Image(.name),
-                            hasError: !viewModel.nameError.isEmpty,
-                            errorMessage: viewModel.nameError
+                            hasError: viewModel.name.hasError,
+                            errorMessage: viewModel.name.error
                         )
                         
                         MainAppTextFieldView(

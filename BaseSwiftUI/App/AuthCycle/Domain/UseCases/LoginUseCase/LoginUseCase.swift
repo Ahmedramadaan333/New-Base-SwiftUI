@@ -19,4 +19,5 @@ final class LoginUseCase {
         _ = try AuthValidationService.validate(name: model.name)
         return try await repository.login(authModel: model)
     }
+    
 }

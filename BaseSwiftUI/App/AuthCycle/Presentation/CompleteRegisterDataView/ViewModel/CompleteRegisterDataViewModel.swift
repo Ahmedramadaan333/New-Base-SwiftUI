@@ -8,110 +8,93 @@ import Combine
 
 final class CompleteRegisterDataViewModel: BaseViewModel {
 
-    // MARK: - Inputs
-    @Published var name: String = ""
-    @Published var email: String = ""
+    // MARK: - Form Fields
+
+    @Published var name = FieldState()          // value + error + hasError
+    @Published var email: String = ""           // no validation required
     @Published var acceptTerms: Bool = false
+    @Published var termsError: String = ""      // Bool field — no FieldState, plain error string
     @Published var imageData: Data?
 
-    @Published var phone: String
-    @Published var countryCode: String
+    // MARK: - Pre-filled (injected, not editable)
 
-    // MARK: - Field Errors (live)
-    @Published var nameError: String = ""
-    @Published var termsError: String = ""
+    let phone: String
+    let countryCode: String
 
     // MARK: - Outputs
+
     @Published var isRegisterSuccess = false
     @Published var resultUser: User?
 
     // MARK: - Dependencies
 
     private let registerUseCase: RegisterUseCase
+    private let validateFieldsUseCase: ValidateRegisterFieldsUseCase
 
     // MARK: - Init
 
-    init(phone: String, countryCode: String, registerUseCase: RegisterUseCase) {
+    init(
+        phone: String,
+        countryCode: String,
+        registerUseCase: RegisterUseCase,
+        validateFieldsUseCase: ValidateRegisterFieldsUseCase
+    ) {
         self.phone = phone
         self.countryCode = countryCode
         self.registerUseCase = registerUseCase
+        self.validateFieldsUseCase = validateFieldsUseCase
         super.init()
-        bindLiveValidation()
+        bindLiveValidations()
     }
-}
 
-extension CompleteRegisterDataViewModel {
+    // MARK: - Live Validation
 
-    func bindLiveValidation() {
-        $name
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] value in
-                guard let self else { return }
-                self.liveValidateName(value)
-            }
-            .store(in: &cancellables)
+    private func bindLiveValidations() {
+        // String field — use the shared BaseViewModel helper.
+        bindField(on: self, $name.map(\.value).eraseToAnyPublisher(), errorPath: \.name.error) {
+            [weak self] value in self?.validateFieldsUseCase.liveValidate(name: value)
+        }
 
+        // Bool field — simple inline sink; no "silent on empty" guard needed.
         $acceptTerms
+            .dropFirst()
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] value in
+            .sink { [weak self] accepted in
                 guard let self else { return }
-                self.liveValidateTerms(value)
+                termsError = validateFieldsUseCase.liveValidate(termsAccepted: accepted) ?? ""
             }
             .store(in: &cancellables)
     }
 }
 
-// MARK: - Live Field Validation
-extension CompleteRegisterDataViewModel {
+// MARK: - Submit
 
-    func liveValidateName(_ value: String) {
-        nameError = ""
-        do {
-            _ = try AuthValidationService.validate(name: value)
-        } catch let error as AuthValidationError {
-            if case .emptyName = error { return }
-            nameError = error.localizedDescription
-        } catch {
-            emitError(error)
-        }
-    }
-
-    func liveValidateTerms(_ accepted: Bool) {
-        termsError = ""
-        do {
-            try AuthValidationService.validate(termesAgreed: accepted)
-        } catch let error as AuthValidationError {
-            termsError = error.localizedDescription
-        } catch {
-            emitError(error)
-        }
-    }
-}
-
-// MARK: - Submit (Full Form Validation)
 extension CompleteRegisterDataViewModel {
 
     func submit() {
-        nameError = ""
-        termsError = ""
-
         do {
-            _ = try AuthValidationService.validate(name: name)
-            try AuthValidationService.validate(termesAgreed: acceptTerms)
+            try validateFieldsUseCase.validate(name: name.value)
+            try validateFieldsUseCase.validate(termsAccepted: acceptTerms)
 
             let model = UserRegisterModel(
                 imageData: imageData,
-                name: name,
+                name: name.value,
                 phone: phone,
                 countryCode: countryCode,
                 email: email,
                 acceptTerms: acceptTerms
             )
-
             register(model: model)
 
         } catch let error as AuthValidationError {
-            emitError(error)
+            switch error {
+            case .emptyName, .shortName, .longName:
+                name.error = error.localizedDescription ?? ""
+            case .terms:
+                termsError = error.localizedDescription ?? ""
+            default:
+                emitError(error)
+            }
         } catch {
             emitError(error)
         }
@@ -119,13 +102,13 @@ extension CompleteRegisterDataViewModel {
 }
 
 // MARK: - Networking
-extension CompleteRegisterDataViewModel {
 
-    private func register(model: UserRegisterModel) {
+private extension CompleteRegisterDataViewModel {
+
+    func register(model: UserRegisterModel) {
         Task {
             self.startLoading()
             defer { self.stopLoading() }
-
             do {
                 let response = try await registerUseCase.execute(model: model)
                 emitSuccess(response.message)

@@ -19,6 +19,18 @@ final class AuthDIContainer {
         LoginUseCase(repository: makeAuthRepository())
     }
 
+    func makeValidateLoginFieldsUseCase() -> ValidateLoginFieldsUseCase {
+        ValidateLoginFieldsUseCase()
+    }
+
+    func makeValidateRegisterFieldsUseCase() -> ValidateRegisterFieldsUseCase {
+        ValidateRegisterFieldsUseCase()
+    }
+
+    func makeValidateVerificationFieldsUseCase() -> ValidateVerificationFieldsUseCase {
+        ValidateVerificationFieldsUseCase()
+    }
+
     func makeVerifyCodeUseCase() -> VerifyCodeUseCase {
         VerifyCodeUseCase(repository: makeAuthRepository())
     }
@@ -44,7 +56,8 @@ final class AuthDIContainer {
     func makeLoginViewModel() -> LoginViewModel {
         LoginViewModel(
             loginUseCase: makeLoginUseCase(),
-            getCountriesUseCase: makeGetCountriesUseCase()
+            getCountriesUseCase: makeGetCountriesUseCase(),
+            validateFieldsUseCase: makeValidateLoginFieldsUseCase()
         )
     }
 
@@ -55,7 +68,8 @@ final class AuthDIContainer {
             type: type,
             verifyCodeUseCase: makeVerifyCodeUseCase(),
             resendCodeUseCase: makeResendCodeUseCase(),
-            changePhoneUseCase: makeChangePhoneUseCase()
+            changePhoneUseCase: makeChangePhoneUseCase(),
+            validateFieldsUseCase: makeValidateVerificationFieldsUseCase()
         )
     }
 
@@ -63,7 +77,8 @@ final class AuthDIContainer {
         CompleteRegisterDataViewModel(
             phone: phone,
             countryCode: countryCode,
-            registerUseCase: makeRegisterUseCase()
+            registerUseCase: makeRegisterUseCase(),
+            validateFieldsUseCase: makeValidateRegisterFieldsUseCase()
         )
     }
 }
