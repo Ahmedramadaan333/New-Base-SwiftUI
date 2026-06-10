@@ -24,11 +24,10 @@ struct RootCoordinatorView: View {
                 AuthRootView()
                     .environmentObject(appCoordinator.authCoordinator)
 
+            
             case .mainTabs:
                 MainTabsRootView()
                     .environmentObject(appCoordinator.tabsCoordinator)
-                    .environmentObject(appCoordinator.tabsCoordinator.homeCoordinator)
-                    .environmentObject(appCoordinator.tabsCoordinator.moreCoordinator)
                     .environmentObject(notificationsCoordinator)
             }
 

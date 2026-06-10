@@ -20,7 +20,7 @@ struct SettingsView: View {
     
     var body: some View {
         ZStack {
-            BaseScreen(
+            BaseView(
                 title: "settings_title".localized,
                 background: .backgroundView
             ) {

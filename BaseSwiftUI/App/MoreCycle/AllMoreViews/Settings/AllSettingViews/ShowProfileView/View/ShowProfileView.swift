@@ -16,7 +16,7 @@ struct ShowProfileView: View {
     }
 
     var body: some View {
-        BaseScreen(title: "show_profile_title".localized) {
+        BaseView(title: "show_profile_title".localized) {
             VStack (spacing: 16){
                 KFImage(URL(string: UserDefaults.user?.image ?? ""))
                     .resizable()

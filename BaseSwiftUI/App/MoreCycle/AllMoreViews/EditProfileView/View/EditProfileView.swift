@@ -18,7 +18,7 @@ struct EditProfileView: View {
     }
 
     var body: some View {
-        BaseScreen(title: "edit_profile_title".localized) {
+        BaseView(title: "edit_profile_title".localized) {
             VStack(spacing: 16) {
                 
                 ZStack(alignment: .bottomTrailing) {

@@ -16,7 +16,6 @@ struct LoginView: View {
 
     var body: some View {
         ZStack {
-          //  LinearGradient.mainVertical.ignoresSafeArea()
 
             VStack(spacing: 0) {
 //                HeaderView()
@@ -41,50 +40,26 @@ struct LoginView: View {
                             .padding(16)
 
                             VStack(alignment: .leading, spacing: 8) {
-                                PhoneTextView(
-                                    title: "Phone Number".localized,
-                                    placeHolder: "Please enter your phone number".localized,
-                                    phone: $viewModel.phone.value,
-                                    selectedCountry: $viewModel.selectedCountry,
-                                    hasError: viewModel.phone.hasError,
-                                    errorMessage: viewModel.phone.error,
-                                    items: viewModel.countries,
-                                    height: 50
-                                ).padding(16)
+//                                PhoneTextView(
+//                                    title: "Phone Number".localized,
+//                                    placeHolder: "Please enter your phone number".localized,
+//                                    phone: $viewModel.phone.value,
+//                                    selectedCountry: $viewModel.selectedCountry,
+//                                    hasError: viewModel.phone.hasError,
+//                                    errorMessage: viewModel.phone.error,
+//                                    items: viewModel.countries,
+//                                    height: 50
+//                                ).padding(16)
 
-                                MainAppTextFieldView(
-                                    text: $viewModel.name.value,
-                                    title: "Name",
-                                    placeHolder: "Enter Your name",
-                                    submitLabel: .done,
-                                    keyboardType: .default,
-                                    isSecure: false,
-                                    hasError: viewModel.name.hasError,
-                                    errorMessage: viewModel.name.error
-                                ).padding(16)
 
-                                MainAppTextFieldView(
-                                    text: $viewModel.password.value,
-                                    title: "Password",
-                                    placeHolder: "Enter your pass",
-                                    submitLabel: .done,
-                                    keyboardType: .default,
-                                    isPhone: false,
-                                    isSecure: true,
-                                    hasError: viewModel.password.hasError,
-                                    errorMessage: viewModel.password.error
-                                )
+                                
+                                AppTextFieldView(type: NameFieldCase(), textValue: $viewModel.name)
 
-                                MainAppTextFieldView(
-                                    text: $viewModel.confirmPassword.value,
-                                    title: "Confirm pass",
-                                    placeHolder: "Enter your pass",
-                                    submitLabel: .done,
-                                    keyboardType: .default,
-                                    isPhone: false,
-                                    isSecure: true,
-                                    hasError: viewModel.confirmPassword.hasError,
-                                    errorMessage: viewModel.confirmPassword.error
+                                AppTextFieldView(type: PasswordFieldCase(), textValue: $viewModel.password)
+
+                                AppTextFieldView(
+                                    type: ConfirmPasswordFieldCase(password: viewModel.password),
+                                    textValue: $viewModel.confirmPassword
                                 )
 
                                 VStack {
@@ -113,6 +88,23 @@ struct LoginView: View {
                             }
                             .padding(.top, 4)
 
+                            Spacer(minLength: 80)
+                            
+                            HStack {
+                                Spacer()
+                                Button {
+                                   
+                                    authCoordinator.push(.completeRegisterData(phone: "0123456789", countryCode: "+010"))
+                                } label: {
+                                    Text("Register".localized)
+                                        .font(AppFont.semiBold(size: 14))
+                                        .foregroundColor(.primaryMain)
+                                        .underline(color: .primaryMain)
+                                }
+                                Spacer()
+                            }
+                            .padding(.top, 4)
+                            
                             Spacer(minLength: 80)
                         }
                         .padding(.top, 16)

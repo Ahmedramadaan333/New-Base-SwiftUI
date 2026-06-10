@@ -19,7 +19,7 @@ struct AppInfoView: View {
     }
     
     var body: some View {
-        BaseScreen(title: kind.titleKey.localized) {
+        BaseView(title: kind.titleKey.localized) {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .trailing, spacing: 16) {
                     if let html = viewModel.content {

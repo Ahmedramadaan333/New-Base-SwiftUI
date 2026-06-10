@@ -1,0 +1,281 @@
+/* 
+  InputViewLocalizable.strings
+  MyApp
+
+  Created by Eslam on 18/06/2024.
+  
+*/
+//MARK: - Name -
+"name_field_title" = "Name";
+"name_field_placeholder" = "Enter Name";
+"user_name_field_title" = "User Name";
+"user_name_field_placeholder" = "Enter User Name";
+"first_name_field_title" = "first_name_field_title";
+"first_name_field_placeholder" = "first_name_field_placeholder";
+"second_name_field_title" = "second_name_field_title";
+"second_name_field_placeholder" = "second_name_field_placeholder";
+"full_name_field_title" = "Full Name";
+"full_name_field_placeholder" = "Please enter Full Name";
+"company_name_field_title" = "company_name_field_title";
+"company_name_field_placeholder" = "company_name_field_placeholder";
+"provider_service_name_field_title" = "provider_service_name_field_title";
+"provider_service_name_field_placeholder" = "provider_service_name_field_placeholder";
+//MARK: - Phone -
+"phone_field_title" = "Mobile Number";
+"phone_field_placeholder" = "Enter Mobile Number";
+"current_phone_field_title" = "Current Phone Number";
+"current_phone_field_placeholder" = "Enter Current Phone Number";
+"new_phone_field_title" = "New Mobile Number";
+"new_phone_field_placeholder" = "Enter New Mobile Number";
+//MARK: - Email -
+"email_field_title" = "Email Address";
+"email_field_placeholder" = " Enter Email Address";
+"current_email_field_title" = "current_email_field_title";
+"current_email_field_placeholder" = "current_email_field_placeholder";
+"new_email_field_title" = "new_email_field_title";
+"new_email_field_placeholder" = "new_email_field_placeholder";
+//MARK: - Password -
+"password_field_title" = "Password";
+"password_field_placeholder" = " Enter Password";
+"confirm_password_field_title" = "Confirm Password";
+"confirm_password_field_placeholder" = " Enter Confirm Password";
+"current_password_field_title" = "Current Password";
+"current_password_field_placeholder" = " Enter Current Password";
+"new_password_field_title" = "New Password";
+"new_password_field_placeholder" = " Enter New Password";
+"confirm_new_password_field_title" = "Confirm New Password";
+"confirm_new_password_field_placeholder" = " Enter Confirm New Password";
+//MARK: - Bank Name -
+"bank_name_field_title" = "Bank Name";
+"bank_name_field_placeholder" = " Enter Bank Name";
+//MARK: - Bank Account Name -
+"bank_account_name_field_title" = "bank_account_name_field_title";
+"bank_account_name_field_placeholder" = "bank_account_name_field_placeholder";
+//MARK: - Bank Account Number -
+"bank_account_number_field_title" = "Account Number";
+"bank_account_number_field_placeholder" = " Enter Account Number";
+//MARK: - Ipan Number -
+"ipan_number_field_title" = "Ipan Number";
+"ipan_number_field_placeholder" = " Enter Ipan Number";
+//MARK: - Main Category -
+"main_category_field_title" = "Main Category";
+"main_category_field_placeholder" = " Select Main Category";
+//MARK: - sub Category -
+"sub_category_field_title" = "Sub Category";
+"sub_category_field_placeholder" = " Select Sub Category";
+//MARK: - Main Categories -
+"main_categories_field_title" = "Main Category";
+"main_categories_field_placeholder" = " Select Main Categories";
+//MARK: - sub Categories -
+"sub_categories_field_title" = "Sub Category";
+"sub_categories_field_placeholder" = " Select Sub Categories";
+//MARK: - comapany Name -
+"comapany_name_field_title" = "comapany_name_field_title";
+"comapany_name_field_placeholder" = "comapany_name_field_placeholder";
+//MARK: - servcice Provider Name -
+"service_provider_name_field_title" = "service_provider_name_field_title";
+"service_provider_name_field_placeholder" = "service_provider_name_field_placeholder";
+//MARK: - Service Type -
+"service_type_field_title" = "service_type_field_title";
+"service_type_field_placeholder" = "service_type_field_placeholder";
+//MARK: - Commercial Number -
+"commercial_number_field_title" = "service_type_field_title";
+"commercial_number_field_placeholder" = "service_type_field_placeholder";
+//MARK: - Identity - الهوية -
+"identity_field_title" = "identity_field_title";
+"identity_field_placeholder" = "identity_field_placeholder";
+//MARK: - Address -
+"adress_field_title" = "adress_field_title";
+"adress_field_placeholder" = "adress_field_placeholder";
+//MARK: - Location -
+"location_field_title" = "location_field_title";
+"location_field_placeholder" = "location_field_placeholder";
+//MARK: - Complaint Reason -
+"complaint_reason_field_title" = "complaint_reason_field_title";
+"complaint_reason_field_placeholder" = "complaint_reason_field_placeholder";
+//MARK: - City -
+"city_field_title" = "City";
+"city_field_placeholder" = " Choose A City";
+//MARK: - Cities -
+"cities_field_title" = "Cities";
+"cities_field_placeholder" = "Cities";
+//MARK: - Country -
+"country_field_title" = "country_field_title";
+"country_field_placeholder" = "country_field_placeholder";
+//MARK: - Countries -
+"countries_field_title" = "countries_field_title";
+"countries_field_placeholder" = "countries_field_placeholder";
+//MARK: - Area -
+"area_field_title" = "area_field_title";
+"area_field_placeholder" = "area_field_placeholder";
+//MARK: - Areas -
+"areas_field_title" = "areas_field_title";
+"areas_field_placeholder" = "areas_field_placeholder";
+//MARK: - Nationality -
+"nationality_field_title" = "nationality_field_title";
+"nationality_field_placeholder" = "nationality_field_placeholder";
+//MARK: - Machine Number -
+"machine_number_field_title" = "machine_number_field_title";
+"machine_number_field_placeholder" = "machine_number_field_placeholder";
+//MARK: - Machine Image -
+"machine_image_field_title" = "machine_image_field_title";
+"machine_image_field_placeholder" = "machine_image_field_placeholder";
+//MARK: - driver License Image -
+"driver_license_image_field_title" = "driver_license_image_field_title";
+"driver_license_image_field_placeholder" = "driver_license_image_field_placeholder";
+//MARK: - Identity Image -
+"identity_image_field_title" = "identity_image_field_title";
+"identity_image_field_placeholder" = "identity_image_field_placeholder";
+//MARK: - Otp -
+"otp_field_title" = "The code sent to the mobile phone";
+"otp_field_placeholder" = " enter the code sent to your mobile phone";
+//MARK: - Message -
+"contact_us_textview_title" = "Message Text";
+//"contact_us_textview_placeholder" = " Write a Message Text";
+"contact_us_textview_placeholder" = " Write a Message Content";
+//MARK: - Contact us -
+"complaint_type_title" = "Type";
+"complaint_type_placeholder" = "Complaint";
+//"contact_reason_field_title" = "Communication Reason";
+//"contact_reason_field_placeholder" = "Enter the reason for contact here..";
+"contact_reason_field_title" = "Message Subject";
+"contact_reason_field_placeholder" = "Enter the subject of the message.";
+//MARK: - Store Complaint -
+"complaint_Reason_type_title" = "Complaint Reason";
+"complaint_Reason_type_placeholder" = " Select Complaint Reason";
+// complaint
+"complaint_reason_title" = "Complaint Reason";
+//"complaint_reason_placeholder" = "Please Enter Complaint Reason";
+"complaint_reason_placeholder" = "Please Enter Reason";
+"order_complaint_reason_title" = "Report reason";
+"order_complaint_reason_placeholder" = "Please enter reason";
+"complaint_message_field_title" = "Complaint Message";
+"complaint_message_field_placeholder" = "Enter your complaint Message here...";
+"complaint_details_field_title" = "Complaint details";
+"complaint_details_field_placeholder" = "Enter complaint details";
+"order_complaint_details_field_title" = "Report details";
+"order_complaint_details_field_placeholder" = "enter report details";
+"complaint_images_field_title" = "Images";
+"complaint_images_field_placeholder" = "Attach Images from Here..";
+//MARK: - Selection Add To Cart -
+"size_title" = "Size";
+"size_placeholder" = " Enter Size";
+"color_title" = "Color";
+"color_placeholder" = " Enter Color";
+//MARK: - Rental Days -
+"rental_days_title" = "Number of Rental days";
+"rental_days_placeholder" = "Minimum number of rental days is 3 days";
+//MARK: - Provider App -
+//MARK: - Store Name -
+"store_name_with_arabic_lang_title" = "Store Name in Arabic";
+"store_name_with_arabic_lang_placeholder" = " Enter Store Name in Arabic";
+"store_name_with_english_lang_title" = "Store Name in English";
+"store_name_with_english_lang_placeholder" = " Enter Store Name in English";
+//MARK: - Commercial Number -
+"commercial_number_title" = "Commercial Number";
+"commercial_number_placeholder" = " Enter Commercial Number";
+//MARK: - National ID Number -
+"national_id_number_title" = "National ID Number";
+"national_id_number_placeholder" = " Enter National ID Number";
+//MARK: - Tax Number -
+"tax_number_title" = "Tax Number";
+"tax_number_placeholder" = " Enter Tax Number";
+//MARK: - Add New Product - Provider -
+"product_arabic_name_field_title" = "Product Name in Arabic";
+"product_arabic_name_field_Placeholder" = " Enter Product Name in Arabic";
+"product_english_name_field_title" = "Product Name in English";
+"product_english_name_field_Placeholder" = " Enter Product Name in English";
+"number_of_usage_product_field_title" = "Number Of Usage Product";
+"number_of_usage_product_field_Placeholder" = " Enter Number Of Usage Product";
+"brand_field_title" = "Brand";
+"brand_field_placeholder" = " Enter Brand";
+"product_feature_field_title" = "Product Features";
+"product_feature_field_placeholder" = " Enter Product Features";
+"quantity_in_stock_field_title" = "Quantity Of Stock";
+"quantity_in_stock_field_Placeholder" = " Enter Quantity Of Stock";
+//MARK: - Delivery Time -
+"delivery_time_title" = "Delivery Time";
+"delivery_time_placeholder" = " Select Delivery Time";
+//MARK: - Add Product To Cart -
+"rental_from_field_title" = "Rent Start Date";
+"rental_from_field_placeholder" = " Select Rent Start Date";
+"rental_to_field_title" = "Rent End Date";
+"rental_to_field_placeholder" = " Select Rent End Date";
+//MARK: - Create New Announcement -
+"announcment_date_title" = "Announcment Date";
+"announcment_date_placeholder" = " Select Announcment Date";
+"announcement_title_field_title" = "Announcment Title";
+"announcement_title_field_Placeholder" = " Enter Announcment Title";
+"PreviewAnnouncementNumberOfDays_field_title" = "Number of days the Announcment was displayed";
+"PreviewAnnouncementNumberOfDays_field_Placeholder" = " Enter Number of days the Announcment was displayed";
+//MARK: - Wallet -
+//"charge_balance_title" = "Charge Balance";
+//"charge_balance_placeholder" = "please enter Charge Balance";
+"charge_balance_title" = "Charge Wallet";
+"charge_balance_placeholder" = "enter Charge Wallet";
+//MARK: - Cerificate  -
+"cerificate_field_title" = "Work or experience certificate";
+"cerificate_field_placeholder" = "Attach a work or experience certificate";
+//MARK: - about you -
+"about_you_field_title" = "Brief About You";
+"about_you_field_placeholder" = "Enter a brief about yourself";
+//MARK: - service -
+"Service_Field_title" = "Choose Service";
+"Service_Field_placeholder" = "Please Choose Service";
+//MARK: - Region -
+"region_field_title" = "Region";
+"region_field_placeholder" = "Select the region from here..";
+//MARK: - Car Type -
+"car_type_title" = "Car Type";
+"car_type_placeholder" = "Car Type";
+//MARK: - Country Origin -
+"country_origin_title" = "Country Origin";
+"country_origin_placeholder" = "Country Origin";
+//MARK: - The Model -
+"the_model_title" = "The Model";
+"the_model_placeholder" = "The Model";
+//MARK: - Manufacture Year -
+"manufacture_year_title" = "Manufacture Year";
+"manufacture_year_placeholder" = "Manufacture Year";
+//MARK: - Specialization -
+"specialization_title" = "Specialization";
+"specialization_placeholder" = "Specialization";
+//MARK: - Search Area -
+"search_area_title" = "Search Area";
+"search_area_placeholder" = "Search area";
+//MARK: - Additional Info -
+"Additional_Info_field_title" = "Additional Information";
+"Additional_Info_field_placeholder" = "Additional Information...";
+// delete acccount
+"DeleteAccountReason_title" = "Delete Reason";
+"DeleteAccountReason_placeholder" = "Write Reason here...";
+//MARK: - Pick Location -
+"PickLocationField_title" = "Location";
+"PickLocationField_placeholder" = "Choose your location";
+//MARK: -  Cancel Reason -
+"CancelReasonField_title" = "Cancel Raseon";
+"CancelReasonField_placeholder" = "Write Reason here...";
+//MARK: - reject Reason -
+"RejectReasonField_title" = "Reject Reason";
+"RejectReasonField_placeholder" = "Write Reason here...";
+//MARK: - Medical Complete Register -
+"Blood_Type_Field_title" = "Blood Type";
+"BloodT_ype_Field_placeholder" = "Select Blood Type";
+"Height_Field_title" = "Height";
+"Height_Field_placeholder" = "Enter Height";
+"Weight_Field_title" = "Weight";
+"Weight_Field_placeholder" = "Enter Weight";
+"Age_Field_title" = "Age";
+"Age_Field_placeholder" = "Select Your Age";
+//MARK: - booking form -
+"booking_date_title" = "Date";
+"booking_date_placeholder" = "Select Date";
+"booking_time_title" = "Time";
+"booking_time_placeholder" = "Select time";
+"booking_reason_field_title" = "Booking Reason";
+"booking_reason_field_placeholder" = "Enter Booking Reason";
+"writtenـaddress_title" = "Written Address";
+"writtenـaddress_placeholder" = "Enter Written Address";
+//MARK: - Disease Field -
+"Disease_Field_title" = "Chronic diseases";
+"Disease_Field_placeholder" = "Select your Chronic diseases";

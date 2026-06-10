@@ -19,7 +19,7 @@ struct NotificationsView: View {
     }
 
     var body: some View {
-        BaseScreen(title: "notifications_title".localized) {
+        BaseView(title: "notifications_title".localized) {
 
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(spacing: 14) {

@@ -32,7 +32,7 @@ struct LocationPickerView: View {
     @State private var recenterToken: Int = 0
     
     var body: some View {
-        BaseScreen(
+        BaseView(
             title: title,
             contentPadding: .init(top: 0, leading: 0, bottom: 0, trailing: 0)
         ) {

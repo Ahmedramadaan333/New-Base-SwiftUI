@@ -20,6 +20,7 @@ struct MoreRootView: View {
         .toolbar(.hidden, for: .navigationBar)
         .navigationDestination(for: MoreCoordinatorRoute.self) { route in
             moreCoordinator.destination(for: route)
+                .toolbar(.hidden, for: .tabBar)
         }
         .sheet(item: $moreCoordinator.modalRoute) { modal in
             switch modal {

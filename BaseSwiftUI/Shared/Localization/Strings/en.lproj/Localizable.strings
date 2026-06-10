@@ -53,6 +53,8 @@
 "about_app_title" = "About the App";
 "logout_title" = "Logout";
 "more_title" = "More";
+"orders_title" = "Orders";
+"order_details_title" = "Order Details";
 "points_title" = "My Points";
 "privacy_title" = "Privacy Policy";
 "edit_profile_title" = "Edit Profile";
@@ -137,6 +139,11 @@
 "immediate_title" = "Immediate";
 "scheduled_trip_title" = "Scheduled";
 "person_transport_title" = "People Transport";
+"home_banner_title" = "Stay closer to opportunities....";
+"home_banner_subtitle" = "From your first ad to your best deal!";
+"search_section_placeholder" = "Search by section name ...";
+"featured_title" = "Featured";
+"currency_symbol" = "SAR";
 "" = "";
 "" = "";
 "" = "";

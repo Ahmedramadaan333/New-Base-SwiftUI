@@ -10,4 +10,5 @@ import Foundation
 enum MainTab: Hashable {
     case home
     case more
+    case orders
 }

@@ -32,13 +32,13 @@ struct AppAlertBanner: View {
             
             Spacer()
         }
-        .padding(.vertical, 12)
-        .padding(.horizontal, 14)
+        .padding(.vertical, 8)
+        .padding(.horizontal, 8)
         .background(alert.style.backgroundColor.opacity(0.95))
         .foregroundColor(.white)
         .cornerRadius(16)
         .shadow(radius: 12)
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 8)
         .padding(.top, 8)
         .onTapGesture {
             onTap()

@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var sampleText: String = ""
     var body: some View {
-
         RootCoordinatorView()
-
     }
 }
 

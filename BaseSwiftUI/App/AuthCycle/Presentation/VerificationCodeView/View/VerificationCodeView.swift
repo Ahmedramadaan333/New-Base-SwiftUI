@@ -23,7 +23,7 @@ struct VerificationCodeView: View {
     // MARK: - Body
     
     var body: some View {
-        BaseScreen(title: "verification_code_title".localized) {
+        BaseView(title: "verification_code_title".localized) {
             VStack(spacing: 16) {
                 
                 Text("verification_code_description".localized)

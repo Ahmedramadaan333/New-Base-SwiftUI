@@ -55,27 +55,36 @@ struct CompleteRegisterDataView: View {
                             }
                             Spacer()
                         }
+//                        
+//                        MainAppTextFieldView(
+//                            text: $viewModel.name.value,
+//                            title: "username_title".localized,
+//                            placeHolder: "username_placholder".localized,
+//                            submitLabel: .next,
+//                            keyboardType: .default,
+//                            leadingImage: Image(.name),
+//                            hasError: viewModel.name.hasError,
+//                            errorMessage: viewModel.name.error
+//                        )
+//                        
+//                        MainAppTextFieldView(
+//                            text: $viewModel.email,
+//                            title: "email_title".localized,
+//                            placeHolder: "email_placholder".localized,
+//                            submitLabel: .next,
+//                            keyboardType: .emailAddress,
+//                            leadingImage: Image(.mail)
+//                        )
                         
-                        MainAppTextFieldView(
-                            text: $viewModel.name.value,
-                            title: "username_title".localized,
-                            placeHolder: "username_placholder".localized,
-                            submitLabel: .next,
-                            keyboardType: .default,
-                            leadingImage: Image(.name),
-                            hasError: viewModel.name.hasError,
-                            errorMessage: viewModel.name.error
+                        AppTextFieldView(type: NameFieldCase(), textValue: $viewModel.name)
+
+                        AppTextFieldView(type: PasswordFieldCase(), textValue: $viewModel.password)
+
+                        AppTextFieldView(
+                            type: ConfirmPasswordFieldCase(password: viewModel.password),
+                            textValue: $viewModel.confirmPassword
                         )
-                        
-                        MainAppTextFieldView(
-                            text: $viewModel.email,
-                            title: "email_title".localized,
-                            placeHolder: "email_placholder".localized,
-                            submitLabel: .next,
-                            keyboardType: .emailAddress,
-                            leadingImage: Image(.mail)
-                        )
-                        
+
                         HStack(alignment: .center, spacing: 12) {
                             Button {
                                 viewModel.acceptTerms.toggle()

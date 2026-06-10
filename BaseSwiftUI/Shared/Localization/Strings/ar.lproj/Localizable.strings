@@ -53,6 +53,8 @@
 "about_app_title" = "عن التطبيق";
 "logout_title" = "تسجيل الخروج";
 "more_title" = "المزيد";
+"orders_title" = "طلباتي";
+"order_details_title" = "تفاصيل الطلب";
 "points_title" = "نقاطي";
 "privacy_title" = "سياسة الخصوصية";
 "edit_profile_title" = "تعديل الملف الشخصي";
@@ -137,6 +139,11 @@
 "immediate_title" = "فورية";
 "scheduled_trip_title" = "مجدولة";
 "person_transport_title" = "توصيل اشخاص";
+"home_banner_title" = "خلك أقرب للفرص....";
+"home_banner_subtitle" = "من إعلانك الأول لصفقتك الأفضل!";
+"search_section_placeholder" = "ابحث بإسم القسم ..";
+"featured_title" = "مميز";
+"currency_symbol" = "ر.س";
 "" = "";
 "" = "";
 "" = "";

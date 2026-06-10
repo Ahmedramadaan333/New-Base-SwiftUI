@@ -22,15 +22,31 @@ struct SplashView: View {
 
             VStack {
                 Spacer()
-                if languageManager.isRTL {
+//                if languageManager.isRTL {
+//                    HStack(spacing: 8) {
+//                        Image(.ctf)
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 120)
+//                            .opacity(showSecondImage ? 1 : 0)
+//                            .offset(x: showSecondImage ? 0 : (languageManager.isRTL ? -150 : 150))
+//                            .animation(.easeOut(duration: 0.6), value: showSecondImage)
+//                        Image(.splashLogo)
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 120)
+//                            .opacity(showFirstImage ? 1 : 0)
+//                            .scaleEffect(showFirstImage ? 1 : 0.7)
+//                            .animation(.easeOut(duration: 0.5), value: showFirstImage)
+//                        
+//                    }
+//                    .frame(maxWidth: .infinity)
+//                    .padding(.horizontal, 32)
+//                    
+//                    Spacer()
+//                }
+//                else {
                     HStack(spacing: 8) {
-                        Image(.ctf)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 120)
-                            .opacity(showSecondImage ? 1 : 0)
-                            .offset(x: showSecondImage ? 0 : (languageManager.isRTL ? -150 : 150))
-                            .animation(.easeOut(duration: 0.6), value: showSecondImage)
                         Image(.splashLogo)
                             .resizable()
                             .scaledToFit()
@@ -39,22 +55,6 @@ struct SplashView: View {
                             .scaleEffect(showFirstImage ? 1 : 0.7)
                             .animation(.easeOut(duration: 0.5), value: showFirstImage)
                         
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal, 32)
-                    
-                    Spacer()
-                }
-                else {
-                    HStack(spacing: 8) {
-                        Image(.splashLogo)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 120)
-                            .opacity(showFirstImage ? 1 : 0)
-                            .scaleEffect(showFirstImage ? 1 : 0.7)
-                            .animation(.easeOut(duration: 0.5), value: showFirstImage)
-                        
                         Image(.ctf)
                             .resizable()
                             .scaledToFit()
@@ -68,11 +68,12 @@ struct SplashView: View {
                     
                     Spacer()
                 }
-            }
+            //}
         }
         .onAppear {
             startSequence()
         }
+        .applyLayoutDirection()
     }
 
     private func startSequence() {

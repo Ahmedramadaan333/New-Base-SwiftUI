@@ -1,0 +1,293 @@
+/* 
+  InputViewLocalizable.strings
+  MyApp
+
+  Created by Eslam on 18/06/2024.
+  
+*/
+//MARK: - Name -
+"name_field_title" = "الاسم";
+"name_field_placeholder" = "ادخل الاسم";
+"user_name_field_title" = "إسم المستخدم";
+"user_name_field_placeholder" = "ادخل إسم المستخدم";
+"first_name_field_title" = "first_name_field_title";
+"first_name_field_placeholder" = "first_name_field_placeholder";
+"second_name_field_title" = "second_name_field_title";
+"second_name_field_placeholder" = "second_name_field_placeholder";
+"last_name_field_title" = "last_name_field_title";
+"last_name_field_placeholder" = "last_name_field_placeholder";
+"full_name_field_title" = "الاسم بالكامل";
+"full_name_field_placeholder" = "اكتب الاسم بالكامل هنا..";
+"company_name_field_title" = "company_name_field_title";
+"company_name_field_placeholder" = "company_name_field_placeholder";
+"provider_service_name_field_title" = "provider_service_name_field_title";
+"provider_service_name_field_placeholder" = "provider_service_name_field_placeholder";
+//MARK: - Phone -
+"phone_field_title" = "رقم الجوال";
+"phone_field_placeholder" = "ادخل رقم الجوال";
+"current_phone_field_title" = "رقم جوالك الحالى";
+"current_phone_field_placeholder" = "ادخل رقم جوالك الحالى";
+"new_phone_field_title" = "رقم الجوال الجديد";
+"new_phone_field_placeholder" = "ادخل رقم جوالك هنا..";
+//MARK: - Email -
+"email_field_title" = "البريد الالكترونى";
+"email_field_placeholder" = "ادخل البريد الالكترونى";
+"current_email_field_title" = "current_email_field_title";
+"current_email_field_placeholder" = "current_email_field_placeholder";
+"new_email_field_title" = "new_email_field_title";
+"new_email_field_placeholder" = "new_email_field_placeholder";
+//MARK: - Password -
+"password_field_title" = "كلمة المرور";
+"password_field_placeholder" = "ادخل كلمة المرور";
+"confirm_password_field_title" = "تأكيد كلمة المرور";
+"confirm_password_field_placeholder" = " ادخل تأكيد كلمة المرور";
+"current_password_field_title" = "كلمة المرور الحالية";
+"current_password_field_placeholder" = "ادخل كلمة المرور الحالية";
+"new_password_field_title" = "كلمة المرور الجديدة";
+"new_password_field_placeholder" = "ادخل كلمة المرور الجديدة";
+"confirm_new_password_field_title" = "تأكيد كلمة المرور الجديدة";
+"confirm_new_password_field_placeholder" = "ادخل تأكيد كلمة المرور الجديد";
+//MARK: - Bank Name -
+"bank_name_field_title" = "إسم البنك";
+"bank_name_field_placeholder" = " ادخل إسم البنك";
+//MARK: - Bank Account Name -
+"bank_account_name_field_title" = "bank_account_name_field_title";
+"bank_account_name_field_placeholder" = "bank_account_name_field_placeholder";
+//MARK: - Bank Account Number -
+"bank_account_number_field_title" = "رقم الحساب";
+"bank_account_number_field_placeholder" = " إدخال رقم الحساب";
+//MARK: - Ipan Number -
+"ipan_number_field_title" = "رقم الايبان";
+"ipan_number_field_placeholder" = "ادخل رقم الايبان";
+//MARK: - Main Category -
+"main_category_field_title" = "القسم الرئيسي";
+"main_category_field_placeholder" = "اختيار القسم الرئيسي";
+//MARK: - sub Category -
+"sub_category_field_title" = "القسم الفرعي";
+"sub_category_field_placeholder" = "اختيار الأقسام الفرعي";
+//MARK: - Main Category -
+"main_categories_field_title" = "القسم الرئيسية";
+"main_categories_field_placeholder" = "اختيار الأقسام الرئيسية";
+//MARK: - sub Categories -
+"sub_categories_field_title" = "القسم الفرعي";
+"sub_categories_field_placeholder" = "اختيار الأقسام الفرعية";
+//MARK: - comapany Name -
+"comapany_name_field_title" = "comapany_name_field_title";
+"comapany_name_field_placeholder" = "comapany_name_field_placeholder";
+//MARK: - servcice Provider Name -
+"service_provider_name_field_title" = "service_provider_name_field_title";
+"service_provider_name_field_placeholder" = "service_provider_name_field_placeholder";
+//MARK: - Service Type -
+"service_type_field_title" = "service_type_field_title";
+"service_type_field_placeholder" = "service_type_field_placeholder";
+//MARK: - Services Type -
+"services_types_field_title" = "services_types_field_title";
+"services_types_field_placeholder" = "services_types_field_placeholder";
+//MARK: - Commercial Number -
+"commercial_number_field_title" = "service_type_field_title";
+"commercial_number_field_placeholder" = "service_type_field_placeholder";
+//MARK: - Identity - الهوية -
+"identity_field_title" = "identity_field_title";
+"identity_field_placeholder" = "identity_field_placeholder";
+//MARK: - Address -
+"adress_field_title" = "adress_field_title";
+"adress_field_placeholder" = "adress_field_placeholder";
+//MARK: - Location -
+"location_field_title" = "location_field_title";
+"location_field_placeholder" = "location_field_placeholder";
+//MARK: - Complaint Reason -
+"complaint_reason_field_title" = "complaint_reason_field_title";
+"complaint_reason_field_placeholder" = "complaint_reason_field_placeholder";
+//MARK: - City -
+"city_field_title" = "المدينة";
+"city_field_placeholder" = "اختر المدينة";
+//MARK: - Cities -
+"cities_field_title" = "المدن";
+"cities_field_placeholder" = "اختر المدن";
+//MARK: - Country -
+"country_field_title" = "country_field_title";
+"country_field_placeholder" = "country_field_placeholder";
+//MARK: - Countries -
+"countries_field_title" = "countries_field_title";
+"countries_field_placeholder" = "countries_field_placeholder";
+//MARK: - Area -
+"area_field_title" = "area_field_title";
+"area_field_placeholder" = "area_field_placeholder";
+//MARK: - Areas -
+"areas_field_title" = "areas_field_title";
+"areas_field_placeholder" = "areas_field_placeholder";
+//MARK: - Nationality -
+"nationality_field_title" = "nationality_field_title";
+"nationality_field_placeholder" = "nationality_field_placeholder";
+//MARK: - Machine Number -
+"machine_number_field_title" = "machine_number_field_title";
+"machine_number_field_placeholder" = "machine_number_field_placeholder";
+//MARK: - Machine Image -
+"machine_image_field_title" = "machine_image_field_title";
+"machine_image_field_placeholder" = "machine_image_field_placeholder";
+//MARK: - driver License Image -
+"driver_license_image_field_title" = "driver_license_image_field_title";
+"driver_license_image_field_placeholder" = "driver_license_image_field_placeholder";
+//MARK: - Identity Image -
+"identity_image_field_title" = "identity_image_field_title";
+"identity_image_field_placeholder" = "identity_image_field_placeholder";
+//MARK: - Otp -
+"otp_field_title" = "الكود المرسل علي الجوال";
+"otp_field_placeholder" = "ادخل الكود المرسل علي الجوال";
+//MARK: - Message -
+"contact_us_textview_title" = "نص الرسالة";
+"contact_us_textview_placeholder" = "ادخل نص الرسالة";
+//MARK: - Contact us -
+"complaint_type_title" = "النوع";
+"complaint_type_placeholder" = "شكوى";
+//"contact_reason_field_title" = "سبب التواصل";
+//"contact_reason_field_placeholder" = "ادخل سبب التواصل هنا..";
+"contact_reason_field_title" = "موضوع الرسالة";
+"contact_reason_field_placeholder" = "أدخل موضوع الرسالة";
+//MARK: - Store Complaint -
+"complaint_Reason_type_title" = "سبب الشكوى";
+"complaint_Reason_type_placeholder" = "تحديد سبب الشكوى";
+// complaint
+"complaint_reason_title" = "سبب الشكوى";
+//"complaint_reason_placeholder" = "برجاء إدخال سبب الشكوى";
+//"complaint_reason_title" = "عنوان الشكوى";
+//"complaint_reason_placeholder" = "ادخل عنوان الشكوى هنا..";
+"complaint_reason_placeholder" = "أدخل السبب";
+"order_complaint_reason_title" = "سبب البلاغ";
+"order_complaint_reason_placeholder" = "أدخل السبب";
+"complaint_message_field_title" = "نص الشكوى";
+"complaint_message_field_placeholder" = "أدخل نص الشكوى هنا...";
+"complaint_details_field_title" = "تفاصيل الشكوى";
+"complaint_details_field_placeholder" = "أدخل تفاصيل الشكوى";
+"order_complaint_details_field_title" = "تفاصيل البلاغ";
+"order_complaint_details_field_placeholder" = "أدخل سبب الالغاء";
+"complaint_images_field_title" = "الصور";
+"complaint_images_field_placeholder" = "إرفاق الصور من هنا";
+//MARK: - Selection Add To Cart -
+"size_title" = "مقاس";
+"size_placeholder" = "من فضلك قم بإدخال المقاس";
+"color_title" = "اللون";
+"color_placeholder" = "من فضلك قم بإدخال اللون";
+//MARK: - Rental Days -
+"rental_days_title" = "عدد أيام الأيجار";
+"rental_days_placeholder" = "اقل عدد أيام ايجار 3 ايام";
+//MARK: - Provider App -
+//MARK: - Store Name -
+"store_name_with_arabic_lang_title" = "اسم المتجر باللغة العربية";
+"store_name_with_arabic_lang_placeholder" = "ادخل اسم المتجر باللغة العربية";
+"store_name_with_english_lang_title" = "اسم المتجر باللغة الإنجليزية";
+"store_name_with_english_lang_placeholder" = "ادخل اسم المتجر باللغة الإنجليزية";
+//MARK: - Commercial Number -
+"commercial_number_title" = "رقم السجل التجاري";
+"commercial_number_placeholder" = "ادخل رقم السجل التجاري";
+//MARK: - National ID Number -
+"national_id_number_title" = "رقم الهوية الوطنية";
+"national_id_number_placeholder" = "ادخل رقم الهوية الوطنية";
+//MARK: - Tax Number -
+"tax_number_title" = "الرقم الضريبي";
+"tax_number_placeholder" = "ادخل تحديد الرقم الضريبي";
+//MARK: - Add New Product - Provider -
+"product_arabic_name_field_title" = "اسم المنتج باللغة العربية";
+"product_arabic_name_field_Placeholder" = "ادخل اسم المنتج باللغة العربية";
+"product_english_name_field_title" = "اسم المنتج باللغة الإنجليزية";
+"product_english_name_field_Placeholder" = "ادخل اسم المنتج باللغة الإنجليزية";
+"number_of_usage_product_field_title" = "كم مرة تم استعمال المنتج";
+"number_of_usage_product_field_Placeholder" = "ادخل كم مرة تم استعمال المنتج";
+"brand_field_title" = "الماركة";
+"brand_field_placeholder" = " ادخل الماركة";
+"product_feature_field_title" = "سمات المنتج";
+"product_feature_field_placeholder" = "اختيار سمات المنتج";
+"quantity_in_stock_field_title" = "الكمية في المخزن";
+"quantity_in_stock_field_Placeholder" = "ادخل الكمية";
+//MARK: - Delivery Time -
+"delivery_time_title" = "وقت التوصيل";
+"delivery_time_placeholder" = "تحديد وقت التوصيل";
+//MARK: - Add Product To Cart -
+"rental_from_field_title" = "تاريخ بداية الايجار";
+"rental_from_field_placeholder" = "يرجى إدخال تاريخ بداية الايجار";
+"rental_to_field_title" = "تاريخ انتهاء الايجار";
+"rental_to_field_placeholder" = "يرجى إدخال تاريخ انتهاء الايجار";
+//MARK: - Create New Announcement -
+"announcment_date_title" = "تاريخ الإعلان";
+"announcment_date_placeholder" = "يرجى إدخال تاريخ الإعلان";
+"announcement_title_field_title" = "عنوان الإعلان";
+"announcement_title_field_Placeholder" = "يرجى إدخال عنوان الإعلان";
+"PreviewAnnouncementNumberOfDays_field_title" = "عدد أيام عرض الأعلان";
+"PreviewAnnouncementNumberOfDays_field_Placeholder" = "يرجى إدخال عدد أيام عرض الأعلان";
+//MARK: - Wallet -
+//"charge_balance_title" = "قيمة الشحن";
+"charge_balance_title" = "مبلغ الشحن";
+//"charge_balance_placeholder" = "يرجى ادخال قيمة الشحن";
+"charge_balance_placeholder" = "أدخل مبلغ الشحن";
+//MARK: - Cerificate  -
+"cerificate_field_title" = "شهادة عمل او خبرة";
+"cerificate_field_placeholder" = "إرفاق شهادة عمل  او خبرة";
+//MARK: - about you -
+"about_you_field_title" = "نبذه عنك";
+"about_you_field_placeholder" = "ادخل نبذه عنك";
+//MARK: - service -
+"Service_Field_title" = "اختيار خدمة";
+"Service_Field_placeholder" = "يرجى اختيار خدمة";
+//MARK: - Region -
+"region_field_title" = "المنطقة";
+"region_field_placeholder" = "حدد المنطقة من هنا..";
+//MARK: - Car Type -
+"car_type_title" = "نوع السيارة";
+"car_type_placeholder" = "نوع السيارة";
+//MARK: - Country Origin -
+"country_origin_title" = "بلد المنشاء";
+"country_origin_placeholder" = "بلد المنشاء";
+//MARK: - The Model -
+"the_model_title" = "الموديل";
+"the_model_placeholder" = "الموديل";
+//MARK: - Manufacture Year -
+"manufacture_year_title" = "سنة الصنع";
+"manufacture_year_placeholder" = "سنة الصنع";
+//MARK: - Specialization -
+"specialization_title" = "التخصص";
+"specialization_placeholder" = "التخصص";
+//MARK: - Search Area -
+"search_area_title" = "منطقة البحث";
+"search_area_placeholder" = "منطقة البحث";
+//MARK: - Additional Info -
+"Additional_Info_field_title" = "معلومات إضافية";
+"Additional_Info_field_placeholder" = "معلومات إضافية...";
+// delete acccount
+"DeleteAccountReason_title" = "سبب الحذف";
+"DeleteAccountReason_placeholder" = "اكتب السبب هنا....";
+//MARK: - Pick Location -
+"PickLocationField_title" = "الموقع الجغرافي";
+"PickLocationField_placeholder" = "اختر الموقع الجغرافي";
+//MARK: -  Cancel Reason -
+"CancelReasonField_title" = "سبب الإلغاء";
+"CancelReasonField_placeholder" = "اكتب السبب هنا....";
+//MARK: - reject Reason -
+"RejectReasonField_title" = "سبب الرفض";
+"RejectReasonField_placeholder" = "اكتب السبب هنا....";
+//MARK: - Medical Complete Register -
+"Blood_Type_Field_title" = "فصيلة الدم";
+"BloodT_ype_Field_placeholder" = "اختر فصيلة الدم";
+"Height_Field_title" = "الطول";
+"Height_Field_placeholder" = "أدخل الطول";
+"Weight_Field_title" = "الوزن";
+"Weight_Field_placeholder" = "أدخل الوزن";
+"Age_Field_title" = "العمر";
+"Age_Field_placeholder" = "اختر العمر الخاص بك";
+//MARK: - booking form -
+"booking_date_title" = "التاريخ";
+"booking_date_placeholder" = "حدد التاريخ";
+"booking_time_title" = "الوقت";
+"booking_time_placeholder" = "حدد الوقت";
+"booking_reason_field_title" = "سبب الحجز";
+"booking_reason_field_placeholder" = "أدخل سبب الحجز";
+"writtenـaddress_title" = "العنوان كتابيًا";
+"writtenـaddress_placeholder" = "أدخل العنوان كتابيًا";
+//MARK: - Disease Field -
+"Disease_Field_title" = "الأمراض المزمنة";
+"Disease_Field_placeholder" = "اختر الأمراض المزمنة لديك";
+//MARK: - Cancel Booking Reason -
+"cancel_booking_reason_field_title" = "Cancel Reason";
+"cancel_booking_reason_field_placeholder" = "enter cancel reason";
+//MARK: - Cancel Booking Reason -
+"cancel_booking_reason_field_title" = "سبب الإلغاء";
+"cancel_booking_reason_field_placeholder" = "أدخل سبب الالغاء";

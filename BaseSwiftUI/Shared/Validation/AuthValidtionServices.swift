@@ -30,7 +30,7 @@ struct AuthValidationService {
         guard name.count > 1 else {
             throw AuthValidationError.shortName
         }
-        guard name.count < 61 else {
+        guard name.count < 18 else {
             throw AuthValidationError.longName
         }
         return name

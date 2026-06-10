@@ -16,7 +16,7 @@ struct ChangePhoneView: View {
     }
 
     var body: some View {
-        BaseScreen(title: "change_phone_title".localized) {
+        BaseView(title: "change_phone_title".localized) {
             VStack{
                 VStack(alignment: .leading, spacing: 16) {
                     PhoneTextView(

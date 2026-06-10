@@ -14,6 +14,8 @@ struct UserRegisterModel: Codable {
     var countryCode: String?
     var code: String?
     var email: String?
+    var password: String?
+    var confirmPassword: String?
     var acceptTerms: Bool? =  false
     var uploadData: [UploadData] {
         guard let data = imageData else { return [] }

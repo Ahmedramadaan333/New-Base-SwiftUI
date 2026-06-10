@@ -10,7 +10,9 @@ final class CompleteRegisterDataViewModel: BaseViewModel {
 
     // MARK: - Form Fields
 
-    @Published var name = FieldState()          // value + error + hasError
+    @Published var name: String = ""
+    @Published var password: String = ""
+    @Published var confirmPassword: String = ""
     @Published var email: String = ""           // no validation required
     @Published var acceptTerms: Bool = false
     @Published var termsError: String = ""      // Bool field — no FieldState, plain error string
@@ -50,11 +52,6 @@ final class CompleteRegisterDataViewModel: BaseViewModel {
     // MARK: - Live Validation
 
     private func bindLiveValidations() {
-        // String field — use the shared BaseViewModel helper.
-        bindField(on: self, $name.map(\.value).eraseToAnyPublisher(), errorPath: \.name.error) {
-            [weak self] value in self?.validateFieldsUseCase.liveValidate(name: value)
-        }
-
         // Bool field — simple inline sink; no "silent on empty" guard needed.
         $acceptTerms
             .dropFirst()
@@ -72,32 +69,27 @@ final class CompleteRegisterDataViewModel: BaseViewModel {
 extension CompleteRegisterDataViewModel {
 
     func submit() {
-        do {
-            try validateFieldsUseCase.validate(name: name.value)
-            try validateFieldsUseCase.validate(termsAccepted: acceptTerms)
-
-            let model = UserRegisterModel(
-                imageData: imageData,
-                name: name.value,
-                phone: phone,
-                countryCode: countryCode,
-                email: email,
-                acceptTerms: acceptTerms
-            )
-            register(model: model)
-
-        } catch let error as AuthValidationError {
-            switch error {
-            case .emptyName, .shortName, .longName:
-                name.error = error.localizedDescription ?? ""
-            case .terms:
-                termsError = error.localizedDescription ?? ""
-            default:
-                emitError(error)
-            }
-        } catch {
-            emitError(error)
-        }
+//        do {
+//            try validateFieldsUseCase.validate(name: name)
+//            try validateFieldsUseCase.validate(password: password)
+//            try validateFieldsUseCase.validate(confirmPassword: confirmPassword, against: password)
+//            try validateFieldsUseCase.validate(termsAccepted: acceptTerms)
+//            let model = UserRegisterModel(
+//                imageData: imageData,
+//                name: name,
+//                phone: phone,
+//                countryCode: countryCode,
+//                email: email.isEmpty ? nil : email,
+//                password: password,
+//                confirmPassword: confirmPassword,
+//                acceptTerms: acceptTerms
+//            )
+//            register(model: model)
+//        } catch let error as AuthValidationError {
+//            emitError(error)
+//        } catch {
+//            emitError(error)
+//        }
     }
 }
 

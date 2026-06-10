@@ -17,6 +17,7 @@ struct HomeRootView: View {
         .environmentObject(homeCoordinator)
         .navigationDestination(for: HomeRoute.self) { route in
             homeCoordinator.destination(for: route)
+                .toolbar(.hidden, for: .tabBar)
         }
     }
 }

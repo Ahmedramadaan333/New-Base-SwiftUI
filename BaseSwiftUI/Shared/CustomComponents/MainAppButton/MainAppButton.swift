@@ -12,7 +12,7 @@ extension LinearGradient {
         LinearGradient(
             colors: [
                 Color("PrimaryMain"),
-                Color("SecondaryMain")
+//                Color("SecondaryMain")
             ],
             startPoint: .top,
             endPoint: .bottom

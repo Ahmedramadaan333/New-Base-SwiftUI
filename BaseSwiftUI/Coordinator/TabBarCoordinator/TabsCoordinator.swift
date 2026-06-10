@@ -15,6 +15,7 @@ final class TabsCoordinator: ObservableObject {
     @Published var selectedTab: MainTab = .home
 
     var homeCoordinator = HomeCoordinator()
+    var orderCycleCoordinator = OrderCycleCoordinator()
     var moreCoordinator = MoreCoordinator()
 
     func select(_ tab: MainTab) {
@@ -23,6 +24,7 @@ final class TabsCoordinator: ObservableObject {
 
     func resetAll() {
         homeCoordinator.reset()
+        orderCycleCoordinator.reset()
         moreCoordinator.reset()
     }
 }

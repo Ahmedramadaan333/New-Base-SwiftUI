@@ -27,6 +27,18 @@ struct MainTabsRootView: View {
             }
             .tag(MainTab.home)
 
+            // Orders Tab
+            OrderCycleRootView()
+                .tabItem {
+                    VStack {
+                        Image(tabsCoordinator.selectedTab == .orders ? "ordersActive" : "ordersInactive")
+                        Text("orders_title".localized)
+                            .font(AppFont.bold(size: 12))
+                    }
+                }
+                .tag(MainTab.orders)
+
+            // More Tab
             NavigationStack(path: $tabsCoordinator.moreCoordinator.path) {
                 MoreRootView()
             }
@@ -42,6 +54,7 @@ struct MainTabsRootView: View {
         }
         .toolbar(.visible, for: .tabBar)
         .environmentObject(tabsCoordinator.homeCoordinator)
+        .environmentObject(tabsCoordinator.orderCycleCoordinator)
         .environmentObject(tabsCoordinator.moreCoordinator)
         .tint(.primaryMain)
     }
