@@ -21,13 +21,6 @@ struct AuthRootView: View {
                                 type: .loginAsUser
                             )
                         )
-                    case let .completeRegisterData(phone, countryCode):
-                        CompleteRegisterDataView(
-                            viewModel: authCoordinator.container.makeCompleteRegisterDataViewModel(
-                                phone: phone,
-                                countryCode: countryCode
-                            )
-                        )
                     }
                 }
         }

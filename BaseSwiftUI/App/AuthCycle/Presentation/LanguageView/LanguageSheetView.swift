@@ -74,15 +74,10 @@ struct LanguageSheetView: View {
             return
         }
 
-        languageManager.setLanguage(pendingLanguage.rawValue)
-        openAppSettings()
+        // Dismiss the sheet first, then apply the change. The app loader is shown
+        // on the presenting screen (driven by AppLanguageManager.isApplyingLanguage)
+        // while the localization bundle + layout direction swap — no Settings, no restart.
         onClose()
-    }
-
-    private func openAppSettings() {
-        if let url = URL(string: UIApplication.openSettingsURLString),
-           UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url)
-        }
+        languageManager.changeLanguage(to: pendingLanguage.rawValue)
     }
 }

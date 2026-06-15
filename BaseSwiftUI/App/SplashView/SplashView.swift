@@ -47,7 +47,7 @@ struct SplashView: View {
 //                }
 //                else {
                     HStack(spacing: 8) {
-                        Image(.splashLogo)
+                        Image(.logo)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 120)
@@ -55,13 +55,13 @@ struct SplashView: View {
                             .scaleEffect(showFirstImage ? 1 : 0.7)
                             .animation(.easeOut(duration: 0.5), value: showFirstImage)
                         
-                        Image(.ctf)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 120)
-                            .opacity(showSecondImage ? 1 : 0)
-                            .offset(x: showSecondImage ? 0 : (languageManager.isRTL ? -150 : 150))
-                            .animation(.easeOut(duration: 0.6), value: showSecondImage)
+//                        Image(.ctf)
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 120)
+//                            .opacity(showSecondImage ? 1 : 0)
+//                            .offset(x: showSecondImage ? 0 : (languageManager.isRTL ? -150 : 150))
+//                            .animation(.easeOut(duration: 0.6), value: showSecondImage)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, 32)

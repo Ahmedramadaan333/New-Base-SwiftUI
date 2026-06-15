@@ -89,23 +89,7 @@ struct LoginView: View {
                             .padding(.top, 4)
 
                             Spacer(minLength: 80)
-                            
-                            HStack {
-                                Spacer()
-                                Button {
-                                   
-                                    authCoordinator.push(.completeRegisterData(phone: "0123456789", countryCode: "+010"))
-                                } label: {
-                                    Text("Register".localized)
-                                        .font(AppFont.semiBold(size: 14))
-                                        .foregroundColor(.primaryMain)
-                                        .underline(color: .primaryMain)
-                                }
-                                Spacer()
-                            }
-                            .padding(.top, 4)
-                            
-                            Spacer(minLength: 80)
+                    
                         }
                         .padding(.top, 16)
                         .padding(.bottom, 40)

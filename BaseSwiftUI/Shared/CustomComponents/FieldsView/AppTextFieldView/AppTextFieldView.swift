@@ -11,12 +11,15 @@ struct AppTextFieldView: View {
     let type: AppInputFieldProtocol
     @Binding var textValue: String
 
+    @ObservedObject private var languageManager = AppLanguageManager.shared
+
     var body: some View {
         AppTextInputContent(
             text: $textValue,
             field: type
         )
         .padding(.horizontal, 16)
+        .environment(\.layoutDirection, languageManager.isRTL ? .rightToLeft : .leftToRight)
     }
 }
 

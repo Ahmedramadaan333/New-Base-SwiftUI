@@ -98,7 +98,8 @@ struct VerificationCodeView: View {
             
             switch response.key {
             case .needComplete:
-                authCoordinator.push(.completeRegisterData(phone: viewModel.phone, countryCode: viewModel.countryCode))
+                print("Need complete data")
+                // authCoordinator.push(.completeRegisterData(phone: viewModel.phone, countryCode: viewModel.countryCode))
             case .success:
                 print(UserDefaults.accessToken ?? "")
                     authCoordinator.loginSucceeded()

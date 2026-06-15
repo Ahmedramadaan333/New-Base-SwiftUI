@@ -8,5 +8,5 @@
 
 enum AuthRoute: Hashable {
     case verification(phone: String, countryCode: String)
-    case completeRegisterData(phone: String, countryCode: String)
+    
 }

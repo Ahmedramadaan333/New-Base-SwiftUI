@@ -25,8 +25,6 @@ struct NewSwiftUIBaseApp: App {
     var body: some Scene {
         WindowGroup {
             AppRootView()
-                .environment(\.locale, Locale(identifier: AppLanguageManager.shared.selectedLanguage))
-                .environment(\.layoutDirection, AppLanguageManager.shared.layoutDirection)
                 .onAppear {
                     if let token = UserDefaults.pushNotificationToken {
                         print("✅ [App] Current saved FCM Token: \(token)")

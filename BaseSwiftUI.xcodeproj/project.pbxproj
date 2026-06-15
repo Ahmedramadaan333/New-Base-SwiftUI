@@ -28,8 +28,19 @@
 		189501A92E2F86C000070976 /* BaseSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		189501AB2E2F86C000070976 /* BaseSwiftUI */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				18A1B2C3D4E5F60000000001 /* Exceptions for "BaseSwiftUI" folder in "BaseSwiftUI" target */,
+			);
+			path = BaseSwiftUI;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		183CCE6C2E3A428F00F06220 /* Exceptions for "BaseSwiftUI" folder in "BaseSwiftUI" target */ = {
+		18A1B2C3D4E5F60000000001 /* Exceptions for "BaseSwiftUI" folder in "BaseSwiftUI" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Core/Info.plist,
@@ -37,17 +48,6 @@
 			target = 189501A82E2F86C000070976 /* BaseSwiftUI */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		189501AB2E2F86C000070976 /* BaseSwiftUI */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				183CCE6C2E3A428F00F06220 /* Exceptions for "BaseSwiftUI" folder in "BaseSwiftUI" target */,
-			);
-			path = BaseSwiftUI;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		189501A62E2F86C000070976 /* Frameworks */ = {
@@ -251,7 +251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Medireach/Core/Info.plist;
+				INFOPLIST_FILE = BaseSwiftUI/Core/Info.plist;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -311,7 +311,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Medireach/Core/Info.plist;
+				INFOPLIST_FILE = BaseSwiftUI/Core/Info.plist;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

@@ -73,12 +73,5 @@ final class AuthDIContainer {
         )
     }
 
-    func makeCompleteRegisterDataViewModel(phone: String, countryCode: String) -> CompleteRegisterDataViewModel {
-        CompleteRegisterDataViewModel(
-            phone: phone,
-            countryCode: countryCode,
-            registerUseCase: makeRegisterUseCase(),
-            validateFieldsUseCase: makeValidateRegisterFieldsUseCase()
-        )
-    }
+
 }

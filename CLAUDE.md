@@ -147,6 +147,23 @@ struct HomeView: View {
 
 Multi-language (Arabic RTL supported). Language managed via `AppLanguageManager` in `Shared/Localization/`. The app forces light color scheme. String resources live in `Shared/Localization/Strings/`.
 
+### RTL / layout-direction convention (REQUIRED for new UI)
+
+Language is switched **live, in-app** (no Settings, no restart) via `AppLanguageManager.shared.changeLanguage(to:)`, which swaps the localization bundle (`Bundle.setLanguage`), updates UIKit appearance direction (`handleViewDirection`), and rebuilds the SwiftUI tree (`AppRootView` keys `RootCoordinatorView` with `.id(selectedLanguage)`). An app-level loader (`AppLoaderView`, driven by `AppLanguageManager.isApplyingLanguage`) shows on the presenting screen during the swap.
+
+Because the swap happens at runtime, **every new view/component you build must pin its own layout direction** instead of trusting the inherited (and, on a live switch, stale) direction. Observe the manager and apply the environment at the component's root:
+
+```swift
+@ObservedObject private var languageManager = AppLanguageManager.shared
+// ...
+SomeView()
+    .environment(\.layoutDirection, languageManager.isRTL ? .rightToLeft : .leftToRight)
+```
+
+Apply this to anything direction-sensitive (rows, stacks, sheets, custom controls). See `Shared/CustomComponents/FieldsView/AppTextFieldView/` for the reference usage.
+
+**Text fields are a special case:** SwiftUI's `TextField`/`SecureField` leave the underlying `UITextField` at `.natural` alignment, which ignores `\.layoutDirection` / `.multilineTextAlignment` on a live switch and only corrects after a restart. Use a `UIViewRepresentable`-backed `UITextField` that sets `semanticContentAttribute` and `textAlignment` explicitly per the current language in `updateUIView` (see `DirectionalTextField` in `Shared/CustomComponents/FieldsView/AppTextField/AppTextField.swift`).
+
 ## Push Notification Routing
 
 Push notification types are defined in `FCM/PushNotificationType.swift`. Add your app's types there. `RootCoordinatorView` handles tap routing — new notification types require updates in `handlePushTap(_:)` and `AppDelegate`.

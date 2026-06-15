@@ -21,7 +21,7 @@ struct UserRegisterModel: Codable {
         guard let data = imageData else { return [] }
         return [.init(key: "image", data: data, mimeType: .jpeg, fileName: "\(Date().timeIntervalSince1970).jpeg")]
     }
-    var terms:Int?{
+    var terms:Int? {
         switch acceptTerms {
             case true:
             return 1
